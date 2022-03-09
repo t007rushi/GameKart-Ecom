@@ -16,19 +16,19 @@ export default function Home() {
               franchise’s largest blockbuster action set pieces.
             </p>
             <div className="flex-row gap-btwn">
-              <i className="undle">
+              <a href="./screens/prodListHori.html" className="undle">
                 <button className="btn primary-btn bold">
                   Learn More &gt;
                 </button>
-              </i>
-              <i className="undle">
-                <button className="btn linked-btn bold">SHOP NOW </button>
-              </i>
+              </a>
+              <a href="./screens/prodList.html" className="undle">
+                <button className="btn linked-btn bold">SHOP NOW &gt;</button>
+              </a>
             </div>
           </div>
           <img
             src={img1}
-            alt="gamer-icon-img"
+            alt=""
             className="home-img"
           />
         </div>
@@ -58,7 +58,7 @@ export default function Home() {
           <div className="relative-container">
             <img
               src={img2}
-              alt="pc-build-img"
+              alt=""
               className="left-side-img"
             />
             <div className="abs-pos">
@@ -67,13 +67,13 @@ export default function Home() {
             </div>
           </div>
           <div className="right-side-img relative-container img-wrap-mid">
-            <img src={img3} alt="pc-gamer-img" />
+            <img src={img3} alt="" />
           </div>
         </div>
         <div className="relative-container">
           <img
             src={img4}
-            alt="ps5-console"
+            alt=""
             className="bottom-img"
           />
           <div className="top-right pre-order flex-col gap-btwn">
