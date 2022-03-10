@@ -6,19 +6,19 @@ const FilterContext = createContext(null);
 const FilterReducerFun = (state, action) => {
   switch (action.type) {
     //   Sorting
-    case "lowtoHigh":
-      return { ...state, sortby: "ltoh" };
-    case "Hightolow":
-      return { ...state, sortby: "htol" };
-    case "new_arrival":
-      return { ...state, sortby: "new" };
-    case "with_discount":
-      return { ...state, sortby: "discount" };
+    case "LOW_TO_HIGH":
+      return { ...state, sortby: "lowtohigh" };
+    case "HIGH_TO_LOW":
+      return { ...state, sortby: "hightolow" };
+    case "NEW_ARRIVAL":
+      return { ...state, sortby: "new_arive" };
+    case "WITH_DISCOUNT":
+      return { ...state, sortby: "highdiscount" };
 
     // Filtering
 
     //clean_up
-    case "clear":
+    case "CLEAN_UP":
       return   {
             sortby: null,
             priceRange: null,

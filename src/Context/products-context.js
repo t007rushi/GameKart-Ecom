@@ -4,9 +4,9 @@ import { createContext, useContext, useState } from "react";
 const ProductContext = createContext(null)
 
 const ProductProvider = ({children}) =>{
-    const [prodArr,updateProdArr] = useState(data);
+    const [prodArr,setProdArr] = useState(data);
     return(
-        <ProductContext.Provider value={{prodArr,updateProdArr}}>
+        <ProductContext.Provider value={{prodArr,setProdArr}}>
             {children}
         </ProductContext.Provider>
     )
