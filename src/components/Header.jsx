@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 export default function Header() {
   return (
@@ -7,7 +8,7 @@ export default function Header() {
         <header className="flex-row header-bar">
           <div className="flex-row header-left">
             <i className="material-icons header-icon"> menu </i>
-            <a href="./index.html" className="hm-pg-link">
+            <Link to="/" className="hm-pg-link">
               <h1 className="flex-row web-logo">
                 <span className="material-icons web-logo-icon">
                   {" "}
@@ -15,7 +16,7 @@ export default function Header() {
                 </span>
                 GameKart
               </h1>
-            </a>
+            </Link>
           </div>
           <div className="flex-row header-mid">
             <i className="material-icons"> search </i>

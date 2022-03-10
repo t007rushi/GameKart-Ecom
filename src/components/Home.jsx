@@ -3,6 +3,7 @@ import img1 from "../assets/home/Gaming-amico.png";
 import img2 from "../assets/home/buil_pc.jpg";
 import img4 from "../assets/home/ps5_lineup.jpg";
 import img3 from "../assets/home/gamer.jpg";
+import { Link} from "react-router-dom";
 
 export default function Home() {
   return (
@@ -21,9 +22,9 @@ export default function Home() {
                   Learn More &gt;
                 </button>
               </a>
-              <a href="./screens/prodList.html" className="undle">
+              <Link to="/products" className="undle">
                 <button className="btn linked-btn bold">SHOP NOW &gt;</button>
-              </a>
+              </Link>
             </div>
           </div>
           <img
