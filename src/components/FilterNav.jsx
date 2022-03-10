@@ -26,18 +26,18 @@ export default function FilterNav() {
               <h4>Price Range</h4>
             </label>
             <div className="flex-row spc-btwn">
-              <h5>0</h5>
-              <h5>2500</h5>
-              <h5>5000</h5>
+              <h5>1000</h5>
+              <h5>25000</h5>
+              <h5>50000</h5>
             </div>
 
             <input
               type="range"
               name="price"
               className="prange"
-              min="0"
-              max="5000"
-              onChange={() => {}}
+              min="1000"
+              max="50000"
+              onChange={(e) => dispactherforfilter({type:"priceRange",payload: e.target.value})}
             />
           </div>
 

@@ -24,3 +24,12 @@ export const SorterFun = (data,sortby) =>{
     return prod;
 
 }
+
+export const FilterFun = (data,priceMax) =>{
+    console.log(priceMax);
+let prod = data;
+if(priceMax){
+    prod = prod.filter(product => product.price <= priceMax);
+}
+return prod;
+}

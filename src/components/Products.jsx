@@ -1,25 +1,26 @@
 import React from "react";
 import { useFilter } from "../Context/filter-context";
 import { useProducts } from "../Context/products-context";
-import {SorterFun} from "../sort_filter_funs"
+import {SorterFun,FilterFun} from "../sort_filter_funs"
 import FilterNav from "./FilterNav";
 
 export default function Products() {
   const {prodArr} = useProducts();
 
-  const {filterstate:{sortby}}  =useFilter();
+  const {filterstate:{sortby,priceRange}}  =useFilter();
 
   const sortedData = SorterFun([...prodArr], sortby)
   
+  const FilterData = FilterFun(sortedData,priceRange)
   return ( 
     <div>
       <div className="main-content">
     <FilterNav />
         <div className="right-side-main">
-          <h1>Showing Products({sortedData.length})</h1>
+          <h1>Showing Products({FilterData.length})</h1>
 
           <div className="right-side">
-            {sortedData.map((prod) => {
+            {FilterData.map((prod) => {
               return (
                 
                 <div  key={prod.id} className="card">

@@ -1,7 +1,6 @@
-import { createContext, useReducer, useContext} from "react";
+import { createContext, useReducer, useContext } from "react";
 
 const FilterContext = createContext(null);
-
 
 const FilterReducerFun = (state, action) => {
   switch (action.type) {
@@ -16,26 +15,25 @@ const FilterReducerFun = (state, action) => {
       return { ...state, sortby: "discount" };
 
     // Filtering
-
+    case "priceRange":
+      return { ...state, priceRange: action.payload };
     //clean_up
     case "clear":
-      return   {
-            sortby: null,
-            priceRange: null,
-            category: null,
-            conditions: null,
-            user_rating: null,
-            genre: null,
-      }
-      
+      return {
+        sortby: null,
+        priceRange: null,
+        category: null,
+        conditions: null,
+        user_rating: null,
+        genre: null,
+      };
+
     default:
       return state;
   }
 };
 
-
 const FilterContextPRovider = ({ children }) => {
-    
   const [filterstate, dispactherforfilter] = useReducer(FilterReducerFun, {
     sortby: null,
     priceRange: null,
@@ -46,7 +44,7 @@ const FilterContextPRovider = ({ children }) => {
   });
 
   return (
-    <FilterContext.Provider value={{filterstate, dispactherforfilter }}>
+    <FilterContext.Provider value={{ filterstate, dispactherforfilter }}>
       {children}
     </FilterContext.Provider>
   );
