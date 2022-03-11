@@ -10,14 +10,14 @@ export default function FilterNav() {
             <div className="left-side-filter flex-col">
           <div className="flex-row spc-btwn">
             <h4>Filter</h4>
-            <h4 className="txt-underline" onClick={() =>dispactherforfilter({type: 'clean_up'})}>Clear</h4>
+            <h4 className="txt-underline" onClick={() =>dispactherforfilter({type: "CLEAN_UP"})}>Clear</h4>
           </div>
 
           <div className="sort">
             <h4>SORT</h4>
             <select name="sorting" onChange={(e) => dispactherforfilter({type: e.target.value})}>
               {filter.sortArr.map((data) => {
-                return <option key={data.val} value={data.val}>{data.sortby}</option>;
+                return <option key={data.val} value={data.val}>{data.optionName}</option>;
               })}
             </select>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useFilter } from "../Context/filter-context";
 import { useProducts } from "../Context/products-context";
-import {SorterFun,FilterFun} from "../sort_filter_funs"
+import {SorterFun,FilterFun} from "../sort-filter-funs"
 import FilterNav from "./FilterNav";
 
 export default function Products() {

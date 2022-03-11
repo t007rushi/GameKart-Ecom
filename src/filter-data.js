@@ -61,24 +61,24 @@ const genre = [
 ];
 const sort = [
   {
-    sortby: "select option",
+    optionName: "select option",
     val: null,
   },
   {
-    sortby: "Low to High",
-    val: "lowtoHigh",
+    optionName: "Low to High",
+    val: "LOW_TO_HIGH",
   },
   {
-    sortby: "High to Low",
-    val: "Hightolow",
+    optionName: "High to Low",
+    val: "HIGH_TO_LOW",
   },
   {
-    sortby: "New Arrival",
-    val: "new_arrival",
+    optionName: "New Arrival",
+    val: "NEW_ARRIVAL",
   },
   {
-    sortby: "With High Discount",
-    val: "with_discount",
+    optionName: "With High Discount",
+    val: "WITH_DISCOUNT",
   },
 ];
 
