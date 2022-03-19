@@ -1,8 +1,8 @@
 import React from "react";
-import img1 from "../assets/home/Gaming-amico.png";
-import img2 from "../assets/home/buil_pc.jpg";
-import img4 from "../assets/home/ps5_lineup.jpg";
-import img3 from "../assets/home/gamer.jpg";
+import img1 from "../../assets/home/Gaming-amico.png";
+import img2 from "../../assets/home/buil_pc.jpg";
+import img4 from "../../assets/home/ps5_lineup.jpg";
+import img3 from "../../assets/home/gamer.jpg";
 import { Link} from "react-router-dom";
 
 export default function Home() {
