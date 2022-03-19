@@ -1,4 +1,3 @@
-import Home from "./Home/Home"
 import Header from "../components/Header/Header";
-
-export  {Home,Header}
+import Home from "./Home/Home"
+export  {Header,Home}
