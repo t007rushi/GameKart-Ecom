@@ -4,7 +4,6 @@ import { useFilter } from "../../Context/filter-context";
 import { CLEAN_UP } from "../../constant/filterConstant";
 import SelectInput from "../SelectInput/SelectInput";
 import PriceRange from "../PriceRange/PriceRange";
-import Input from "../Input/Input";
 
 export default function FilterNav() {
   const { dispactherforfilter } = useFilter();
