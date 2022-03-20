@@ -27,7 +27,6 @@ export default function FilterNav() {
 
         <div className="type filter-wrapper flex-col">
           <h2>Categories</h2>
-          {/* <Input /> */}
           {filter.category.map((categ) => {
             return (
               <div className="flex-row spac_bord">
