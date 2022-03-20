@@ -35,7 +35,7 @@ export default function FilterNav() {
                 <label htmlFor="Games">{categ.category}</label>
               </div>
             );
-          })} 
+          })}
         </div>
 
         <div className="condition filter-wrapper flex-col">
@@ -56,19 +56,7 @@ export default function FilterNav() {
             return (
               <div className="flex-row spac_bord">
                 <input type="radio" name="condn" id="cond1" />
-                <label htmlFor="cond1">{rating.rating_categ}</label>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="genre filter-wrapper flex-col">
-          <h2>Genre</h2>
-          {filter.genre.map((genre) => {
-            return (
-              <div className="check flex-row spac_bord">
-                <input type="checkbox" name="" id="" />
-                <label htmlFor="action">{genre.Genre}</label>
+                <label htmlFor="cond1">{rating.rating_category}</label>
               </div>
             );
           })}
