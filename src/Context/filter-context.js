@@ -7,21 +7,21 @@ const FilterReducerFun = (state, action) => {
   switch (action.type) {
     //   Sorting
     case SORT:
-      return {...state,sortby: action.payload}
+      return { ...state, sortby: action.payload };
     // Filtering
     case PRICERANGE:
       return { ...state, priceRange: action.payload };
     //clean_up
     case CLEAN_UP:
-      return   {
-            sortby: null,
-            priceRange: null,
-            category: null,
-            conditions: null,
-            user_rating: null,
-            genre: null,
-      }
-      
+      return {
+        sortby: null,
+        priceRange: null,
+        category: null,
+        conditions: null,
+        user_rating: null,
+        genre: null,
+      };
+
     default:
       return state;
   }

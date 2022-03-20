@@ -4,10 +4,10 @@ import { SORT } from "../../constant/filterConstant";
 import { useFilter } from "../../Context/filter-context";
 
 const SelectInput = () => {
-    const { dispactherforfilter } = useFilter();
+  const { dispactherforfilter } = useFilter();
   return (
     <div className="sort">
-          <h4>SORT</h4>
+      <h4>SORT</h4>
       <select
         name="sorting"
         onChange={(e) =>

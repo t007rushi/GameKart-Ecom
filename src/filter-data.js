@@ -103,4 +103,3 @@ const filter = {
   sortArr: sort,
 };
 export default filter;
-

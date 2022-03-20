@@ -3,7 +3,7 @@ import { PRICERANGE } from "../../constant/filterConstant";
 import { useFilter } from "../../Context/filter-context";
 
 const PriceRange = () => {
-    const { dispactherforfilter } = useFilter();
+  const { dispactherforfilter } = useFilter();
   return (
     <div className="filter-wrapper flex-col">
       <label htmlFor="price">
