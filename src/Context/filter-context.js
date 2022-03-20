@@ -1,24 +1,18 @@
 import { createContext, useReducer, useContext } from "react";
+import { CLEAN_UP, PRICERANGE, SORT } from "../constant/filterConstant";
 
 const FilterContext = createContext(null);
 
 const FilterReducerFun = (state, action) => {
   switch (action.type) {
     //   Sorting
-    case "LOW_TO_HIGH":
-      return { ...state, sortby: "lowtohigh" };
-    case "HIGH_TO_LOW":
-      return { ...state, sortby: "hightolow" };
-    case "NEW_ARRIVAL":
-      return { ...state, sortby: "new_arive" };
-    case "WITH_DISCOUNT":
-      return { ...state, sortby: "highdiscount" };
-
+    case SORT:
+      return {...state,sortby: action.payload}
     // Filtering
-    case "priceRange":
+    case PRICERANGE:
       return { ...state, priceRange: action.payload };
     //clean_up
-    case "CLEAN_UP":
+    case CLEAN_UP:
       return   {
             sortby: null,
             priceRange: null,

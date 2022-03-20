@@ -1,38 +1,51 @@
-const category = [
+const categ = [
   {
-    catg: "Games",
+    category: "Games",
+    match: "games",
+    type: "GAMES",
   },
   {
-    catg: "Console",
+    category: "Console",
+    match: "console",
+    type: "CONSOLE",
   },
   {
-    catg: "Accesories",
+    category: "Accesories",
+    match: "accesories",
+    type: "ACCESORIES",
   },
 ];
 const user_rating = [
   {
-    rating_categ: "4-Star & above",
+    rating_category: "4-Star & above",
+    val: 4,
   },
   {
-    rating_categ: "3-Star & above",
+    rating_category: "3-Star & above",
+    val: 3,
   },
   {
-    rating_categ: "2-Star & above",
+    rating_category: "2-Star & above",
+    val: 2,
   },
   {
-    rating_categ: "ALL",
+    rating_category: "1-Star & above",
+    val: 1,
   },
 ];
 
 const conditions = [
   {
     cond: "Pre-owned",
+    val: "pre-owned",
   },
   {
     cond: "New",
+    val: "new",
   },
   {
     cond: "Pre-order",
+    val: "pre-order",
   },
 ];
 
@@ -66,27 +79,28 @@ const sort = [
   },
   {
     optionName: "Low to High",
-    val: "LOW_TO_HIGH",
+    val: "lowtohigh",
   },
   {
     optionName: "High to Low",
-    val: "HIGH_TO_LOW",
+    val: "hightolow",
   },
   {
     optionName: "New Arrival",
-    val: "NEW_ARRIVAL",
+    val: "new_arive",
   },
   {
     optionName: "With High Discount",
-    val: "WITH_DISCOUNT",
+    val: "highdiscount",
   },
 ];
 
 const filter = {
-  category: category,
+  category: categ,
   user_rat: user_rating,
   condition: conditions,
   genre: genre,
   sortArr: sort,
 };
 export default filter;
+

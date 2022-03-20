@@ -1,7 +1,6 @@
 import React from "react";
 
-const Card = (props) => {
-  const { prod } = props.prodArr;
+const Card = ({prod}) => {
   return (
     <div key={prod.id}>
       <div className="card relative-container">

@@ -6,13 +6,13 @@ import Card from "../Card/Card";
 
 export default function Product() {
   const { prodArr } = useProducts();
-  
+
   const {
     filterstate: { sortby, priceRange, category, condition, rating },
   } = useFilter();
 
   const sortedData = SorterFun([...prodArr], sortby);
-  
+
   const FilterData = FilterFun(
     sortedData,
     priceRange,
@@ -27,20 +27,13 @@ export default function Product() {
 
         <div className="right-side">
           {FilterData.map((prod) => {
-            return (
-              <Card
-                prodArr={{
-                  prod: prod,
-                }}
-                />
-                );
-              })}
+            return <Card key={prod.id} prod={prod} />;
+          })}
         </div>
       </div>
     </div>
   );
 }
-
 
 //commented code
 // import { useCart } from "../../Context/cartContext";
@@ -48,4 +41,4 @@ export default function Product() {
 // const { cartDispatcher } = useCart();
 // const { wishDispatcher } = useWishlist();
 // fun1: wishDispatcher,
-// fun2: cartDispatcher, 
+// fun2: cartDispatcher,
