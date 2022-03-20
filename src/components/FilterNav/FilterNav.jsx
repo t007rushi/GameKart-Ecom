@@ -1,7 +1,6 @@
 import React from 'react'
-import filter from "../filter-data";
-import { useFilter } from "../Context/filter-context";
-
+import filter from "../../filter-data"
+import { useFilter } from "../../Context/filter-context"
 
 export default function FilterNav() {
     const {dispactherforfilter} = useFilter();
