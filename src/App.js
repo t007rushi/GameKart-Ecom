@@ -1,9 +1,11 @@
 import "./App.css";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Header from "./components/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Products from "./components/Products";
+import {
+  Home,
+  Header,
+  ProductList,
+} from "./pages/index.js";
+import Mockman from "mockman-js"
 
 function App() {
   return (
@@ -11,16 +13,9 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <Home />
-                <Footer />
-              </div>
-            }
-          ></Route>
-          <Route path="/products" element={<Products />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/mockman" element={<Mockman />}></Route>
+          <Route path="/products" element={<ProductList />}></Route>
         </Routes>
       </Router>
     </div>
