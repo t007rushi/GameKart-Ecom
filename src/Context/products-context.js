@@ -9,7 +9,6 @@ const ProductProvider = ({ children }) => {
   const fetchData = async () => {
     try{
     const { data } = await axios.get(url);
-    console.log("inside")
     setProdArr(data.products);}
     catch(error) {
       console.log(error);
