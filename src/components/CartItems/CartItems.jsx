@@ -80,6 +80,3 @@ const CartItems = () => {
 };
 
 export default CartItems;
-
-// import { useWishlist } from "../../Context/wishlistContext";
-// const { wishDispatcher } = useWishlist();
