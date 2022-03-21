@@ -4,5 +4,8 @@ import Footer from "./Footer/Footer";
 import ImgBanner from "./ImgBanner/ImgBanner";
 import FilterNav from "./FilterNav/FilterNav";
 import Product from "./Product/Product";
+import SelectInput from "./SelectInput/SelectInput";
+import Input from "./Input/Input";
+import PriceRange from "./PriceRange/PriceRange";
 
-export {Banner,Category,Footer,ImgBanner,FilterNav,Product}
+export {Banner,Category,Footer,ImgBanner,FilterNav,Product,SelectInput,Input,PriceRange}

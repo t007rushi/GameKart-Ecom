@@ -1,5 +1,11 @@
 import { createContext, useReducer, useContext } from "react";
-import { CLEAN_UP, PRICERANGE, SORT } from "../constant/filterConstant";
+import {
+  CLEAN_UP,
+  CONDITION,
+  PRICERANGE,
+  RATING,
+  SORT,
+} from "../constant/filterConstant";
 
 const FilterContext = createContext(null);
 
@@ -11,15 +17,35 @@ const FilterReducerFun = (state, action) => {
     // Filtering
     case PRICERANGE:
       return { ...state, priceRange: action.payload };
+    //Category Filtering
+    case "GAMES":
+      return {
+        ...state,
+        category: { ...state.category, games: !state.category.games },
+      };
+    case "CONSOLE":
+      return {
+        ...state,
+        category: { ...state.category, console: !state.category.console },
+      };
+    case "ACCESORIES":
+      return {
+        ...state,
+        category: { ...state.category, accesories: !state.category.accesories },
+      };
+    //radio
+    case CONDITION:
+      return { ...state, condition: action.payload };
+    case RATING:
+      return { ...state, rating: action.payload };
     //clean_up
     case CLEAN_UP:
       return {
         sortby: null,
         priceRange: null,
-        category: null,
-        conditions: null,
-        user_rating: null,
-        genre: null,
+        category: { games: false, console: false, accesories: false },
+        condition: null,
+        rating: 0,
       };
 
     default:
@@ -31,10 +57,9 @@ const FilterContextPRovider = ({ children }) => {
   const [filterstate, dispactherforfilter] = useReducer(FilterReducerFun, {
     sortby: null,
     priceRange: null,
-    category: null,
-    conditions: null,
-    user_rating: null,
-    genre: null,
+    category: { games: false, console: false, accesories: false },
+    condition: null,
+    rating: 0,
   });
 
   return (
