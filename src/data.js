@@ -1,13 +1,7 @@
-import { v4 as uuid } from "uuid";
-
-/**
- * Product Database can be added here.
- * You can add products of your wish with different attributes
- * */
-
-export const products = [
+import {v4 as uuidv4} from "uuid";
+const data = [
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/71T0ogpJS1L.jpg",
     prod_title: "Last of US 2",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -20,7 +14,7 @@ export const products = [
     released: new Date("03-05-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/51QKZfyi-dL._SX425_.jpg",
     prod_title: "PS5",
     prod_desc: "PEGI Rating: Ages 13 and Above",
@@ -34,7 +28,7 @@ export const products = [
     released: new Date("03-06-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/71ayysKo69L.jpg",
     prod_title: "Last of US",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -48,7 +42,7 @@ export const products = [
     released: new Date("03-03-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/71XN6RnFchL._SL1500_.jpg",
     prod_title: "PS4",
     prod_desc: "PEGI Rating: Ages 13 and Above",
@@ -61,7 +55,7 @@ export const products = [
     released: new Date("03-08-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/71R1q5uH2BL._SX425_.jpg",
     prod_title: "PS4 Controller",
     prod_desc: "PEGI Rating: Ages 13 and Above",
@@ -75,7 +69,7 @@ export const products = [
     released: new Date("03-10-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/81+ndnoPUkL._SL1500_.jpg",
     prod_title: "Uncharted 4",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -89,7 +83,7 @@ export const products = [
     released: new Date("03-07-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/81citugjIUL._SX385_.jpg",
     prod_title: "Assasin creed",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -103,7 +97,7 @@ export const products = [
     released: new Date("03-10-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/71PxNaNLNnL._SL1373_.jpg",
     prod_title: "Miles Morales",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -117,7 +111,7 @@ export const products = [
     released: new Date("03-03-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/81WLWhgNxLL._SX425_.jpg",
     prod_title: "Resident Evil",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -131,7 +125,7 @@ export const products = [
     released: new Date("03-02-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/61uOSq1OJ8L._SX385_.jpg",
     prod_title: "God Of War",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -145,7 +139,7 @@ export const products = [
     released: new Date("03-04-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://cdn.shopify.com/s/files/1/0385/8490/9956/products/CallofDutyBlackOpsColdWarStandardEdition-PlayStation5_803x1015.jpg",
     prod_title: "COD:Cold War",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -158,7 +152,7 @@ export const products = [
     released: new Date("03-01-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/91Yd2OK1npL._SX425_.jpg",
     prod_title: "SACKBOY",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -172,7 +166,7 @@ export const products = [
     released: new Date("03-02-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/91TThgblMlS._SX425_.jpg",
     prod_title: "Returnal",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -186,7 +180,7 @@ export const products = [
     released: new Date("03-10-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://images-eu.ssl-images-amazon.com/images/I/51FbN+nEf9L._AC_SX184_.jpg",
     prod_title: "Demon Souls",
     prod_desc: "PEGI Rating: Ages 16 and Above",
@@ -200,7 +194,7 @@ export const products = [
     released: new Date("03-12-22"),
   },
   {
-    _id: uuid(),
+    id: uuidv4(),
     img: "https://m.media-amazon.com/images/I/51Iw5jCQY7L._SX679_.jpg",
     prod_title: "PS4 Headset",
     prod_desc: "PEGI Rating: Ages 13 and Above",
@@ -214,3 +208,5 @@ export const products = [
     released: new Date("03-11-22"),
   },
 ];
+
+export default data;

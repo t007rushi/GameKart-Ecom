@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "games",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Video games are defined based on their platform, which include arcade video games, console games, and personal computer (PC) games",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "console",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "A video game console is an electronic device that outputs a video signal or image to display a video game that can be played with a game controller.",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "accesories",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "A video game accessory is a distinct piece of hardware that is required to use a video game console, or one that enriches the video game's play experience.",
   },
 ];
