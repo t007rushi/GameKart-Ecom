@@ -1,4 +1,4 @@
-import { CATEGORY, CONDITION, RATING } from "./constant/filterConstant";
+import { CONDITION, RATING } from "./constant/filterConstant";
 
 const categorydata = [
   {

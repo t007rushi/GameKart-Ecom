@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useFilter } from "../../Context/filter-context";
 import { useProducts } from "../../Context/products-context";
@@ -6,10 +7,13 @@ import Card from "../Card/Card";
 
 export default function Product() {
   const { prodArr, fetchData } = useProducts();
-  useEffect(() => fetchData(), []);
   const {
     filterstate: { sortby, priceRange, category, condition, rating },
   } = useFilter();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const sortedData = SorterFun([...prodArr], sortby);
 
@@ -22,12 +26,12 @@ export default function Product() {
   );
   return (
     <div>
-        <h1>Showing Products({FilterData.length})</h1>
+      <h1>Showing Products({FilterData.length})</h1>
 
-        <div className="right-side">
-          {FilterData.map((prod) => {
-            return <Card key={prod.id} prod={prod} />;
-          })}
+      <div className="right-side">
+        {FilterData.map((prod) => {
+          return <Card key={prod.id} prod={prod} />;
+        })}
       </div>
     </div>
   );
