@@ -1,7 +1,11 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import { useCart } from "../../Context/cartContext";
 
 export default function Header() {
+  const {
+    cartState: { cartArr },
+  } = useCart();
   return (
     <div>
       <>
@@ -40,14 +44,14 @@ export default function Header() {
                 </i>
               </div>
             </a>
-            <a href="./screens/mycart.html" className="cart">
+            <Link to="/cart" className="cart">
               <div className="flex-row relative-container">
                 <i className="material-icons header-icon"> shopping_cart </i>
                 <div className="badge top-right lrg red-clr flex-row center-it">
-                  2
+                  {cartArr.length}
                 </div>
               </div>
-            </a>
+            </Link>
             <i className="material-icons header-icon"> logout </i>
           </div>
         </header>

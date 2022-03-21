@@ -53,7 +53,7 @@ const FilterReducerFun = (state, action) => {
   }
 };
 
-const FilterContextPRovider = ({ children }) => {
+const FilterContextProvider = ({ children }) => {
   const [filterstate, dispactherforfilter] = useReducer(FilterReducerFun, {
     sortby: null,
     priceRange: null,
@@ -71,4 +71,4 @@ const FilterContextPRovider = ({ children }) => {
 
 const useFilter = () => useContext(FilterContext);
 
-export { FilterContextPRovider, useFilter };
+export { FilterContextProvider, useFilter };

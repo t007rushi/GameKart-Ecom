@@ -1,6 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useCart } from "../../Context/cartContext";
 
-const Card = ({prod}) => {
+const Card = ({ prod }) => {
+  const {
+    cartState: { cartArr },
+    cartDispatcher,
+  } = useCart();
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -24,7 +30,7 @@ const Card = ({prod}) => {
           <button
             className="card-btn primary-btn flex-row center-it"
             onClick={() => {}}
-            >
+          >
             <p>Add to wishlist</p>
             <p>
               <i className="material-icons"> favorite </i>
@@ -33,10 +39,27 @@ const Card = ({prod}) => {
 
           {/* button2 */}
 
-          <button className="card-btn card-icon-btn" onClick={() => {}}>
-            <span className="material-icons icon">shopping_cart</span>
-            <p>Add to Cart</p>
-          </button>
+          {cartArr.find((cartItem) => cartItem.id === prod.id) ? (
+            <Link style={{ textDecoration: "none" }} to="/cart">
+              <button className="card-btn card-icon-btn">
+                <span className="material-icons icon">shopping_cart</span>
+                Go To Cart
+              </button>
+            </Link>
+          ) : (
+            <button
+              className="card-btn card-icon-btn"
+              onClick={() =>
+                cartDispatcher({
+                  type: "ADD_TO_CART",
+                  payload: { id: prod.id },
+                })
+              }
+            >
+              <span className="material-icons icon">shopping_cart</span>
+              <p>Add to Cart</p>
+            </button>
+          )}
         </div>
       </div>
     </div>
@@ -44,12 +67,3 @@ const Card = ({prod}) => {
 };
 
 export default Card;
-
-// const { pathname } = useLocation();
-// import { Link, useLocation } from "react-router-dom";
-// import { useCart } from "../../Context/cartContext";
-// import { useWishlist } from "../../Context/wishlistContext";
-// const {
-  //   cartState: { cartArr },
-  // } = useCart();
-// const {wishState:{wishlist}} = useWishlist();

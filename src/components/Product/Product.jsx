@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
+
 import { useFilter } from "../../Context/filter-context";
 import { useProducts } from "../../Context/products-context";
 import { SorterFun, FilterFun } from "../../sort-filter-funs";
@@ -24,6 +25,7 @@ export default function Product() {
     condition,
     rating
   );
+
   return (
     <div>
       <h1>Showing Products({FilterData.length})</h1>
@@ -36,11 +38,3 @@ export default function Product() {
     </div>
   );
 }
-
-//commented code
-// import { useCart } from "../../Context/cartContext";
-// import { useWishlist } from "../../Context/wishlistContext";
-// const { cartDispatcher } = useCart();
-// const { wishDispatcher } = useWishlist();
-// fun1: wishDispatcher,
-// fun2: cartDispatcher,
