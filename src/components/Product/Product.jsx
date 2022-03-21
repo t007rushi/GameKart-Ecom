@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFilter } from "../../Context/filter-context";
 import { useProducts } from "../../Context/products-context";
 import { SorterFun, FilterFun } from "../../sort-filter-funs";
 import Card from "../Card/Card";
 
 export default function Product() {
-  const { prodArr } = useProducts();
-
+  const { prodArr, fetchData } = useProducts();
+  useEffect(() => fetchData(), []);
   const {
     filterstate: { sortby, priceRange, category, condition, rating },
   } = useFilter();
@@ -22,14 +22,12 @@ export default function Product() {
   );
   return (
     <div>
-      <div className="right-side-main">
         <h1>Showing Products({FilterData.length})</h1>
 
         <div className="right-side">
           {FilterData.map((prod) => {
             return <Card key={prod.id} prod={prod} />;
           })}
-        </div>
       </div>
     </div>
   );

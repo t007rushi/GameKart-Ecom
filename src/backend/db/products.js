@@ -13,10 +13,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 5499,
     discount: 46,
-    rating: 4.5,
+    rating: 4,
     genre: "fps",
     category: "games",
     condition: "new",
+    quantity: 1,
     released: new Date("03-05-22"),
   },
   {
@@ -29,8 +30,8 @@ export const products = [
     rating: 4.5,
     genre: null,
     category: "console",
-    condition: "new",
-
+    condition: "pre-order",
+    quantity: 1,
     released: new Date("03-06-22"),
   },
   {
@@ -40,11 +41,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 2499,
     discount: 20,
-    rating: 4.5,
+    rating: 1.5,
     genre: "fps",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-03-22"),
   },
   {
@@ -54,10 +55,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 13 and Above",
     price: 40999,
     discount: 10,
-    rating: 5,
+    rating: 2,
     genre: null,
     category: "console",
     condition: "pre-owned",
+    quantity: 1,
     released: new Date("03-08-22"),
   },
   {
@@ -67,11 +69,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 13 and Above",
     price: 4999,
     discount: 10,
-    rating: 4,
+    rating: 3,
     genre: null,
     category: "accesories",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-10-22"),
   },
   {
@@ -81,11 +83,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 25499,
     discount: 30,
-    rating: 4.5,
+    rating: 3.5,
     genre: "adventure",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-07-22"),
   },
   {
@@ -99,7 +101,7 @@ export const products = [
     genre: "adventure",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-10-22"),
   },
   {
@@ -113,7 +115,7 @@ export const products = [
     genre: "action",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-03-22"),
   },
   {
@@ -123,11 +125,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 15499,
     discount: 5,
-    rating: 4.5,
+    rating: 3.5,
     genre: "horror",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-02-22"),
   },
   {
@@ -137,10 +139,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 5499,
     discount: 9,
-    rating: 4.5,
+    rating: 2.5,
     genre: "action",
     category: "games",
     condition: "new",
+    quantity: 1,
 
     released: new Date("03-04-22"),
   },
@@ -151,10 +154,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 18499,
     discount: 80,
-    rating: 4.5,
+    rating: 1.5,
     genre: "fps",
     category: "games",
     condition: "new",
+    quantity: 1,
     released: new Date("03-01-22"),
   },
   {
@@ -164,11 +168,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 1499,
     discount: 40,
-    rating: 4.5,
+    rating: 2.5,
     genre: "sports",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-02-22"),
   },
   {
@@ -182,7 +186,7 @@ export const products = [
     genre: "action",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-10-22"),
   },
   {
@@ -192,11 +196,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 16 and Above",
     price: 5499,
     discount: 15,
-    rating: 4.5,
+    rating: 3.5,
     genre: "action",
     category: "games",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-12-22"),
   },
   {
@@ -206,11 +210,11 @@ export const products = [
     prod_desc: "PEGI Rating: Ages 13 and Above",
     price: 8999,
     discount: 10,
-    rating: 4,
+    rating: 3,
     genre: null,
     category: "accesories",
     condition: "new",
-
+    quantity: 1,
     released: new Date("03-11-22"),
   },
 ];
