@@ -5,10 +5,14 @@ const ProductContext = createContext(null);
 
 const ProductProvider = ({ children }) => {
   const [prodArr, setProdArr] = useState([]);
-
+  const url = "/api/products"
   const fetchData = async () => {
-    const { data } = await axios.get("/api/products");
-    setProdArr(data.products);
+    try{
+    const { data } = await axios.get(url);
+    setProdArr(data.products);}
+    catch(error) {
+      console.log(error);
+    }
   };
   return (
     <ProductContext.Provider value={{ prodArr, setProdArr, fetchData }}>
