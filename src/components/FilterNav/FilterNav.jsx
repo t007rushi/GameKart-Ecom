@@ -1,19 +1,19 @@
 import React from "react";
-import filter from "../../filter-data";
+import "./filternav.css"
 import { useFilter } from "../../Context/filter-context";
 import { CLEAN_UP } from "../../constant/filterConstant";
-import SelectInput from "../SelectInput/SelectInput";
-import PriceRange from "../PriceRange/PriceRange";
+import { categorydata, user_rating, conditions } from "../../filter-data";
+import { SelectInput, Input, PriceRange } from "../index";
 
 export default function FilterNav() {
-  const { dispactherforfilter } = useFilter();
+  const { dispactherforfilter,filterstate: { category, rating, condition } } = useFilter();
   return (
     <div>
       <div className="left-side-filter flex-col">
         <div className="flex-row spc-btwn">
           <h4>Filter</h4>
           <h4
-            className="txt-underline"
+            className="txt-underline cur-point"
             onClick={() => dispactherforfilter({ type: CLEAN_UP })}
           >
             Clear
@@ -24,40 +24,19 @@ export default function FilterNav() {
 
         <PriceRange />
 
-        <div className="type filter-wrapper flex-col">
+        <div className="type">
           <h2>Categories</h2>
-          {filter.category.map((categ) => {
-            return (
-              <div className="flex-row spac_bord">
-                <input type="checkbox" name="" id="" />
-                <label htmlFor="Games">{categ.category}</label>
-              </div>
-            );
-          })}
+          <Input inputs={{data:categorydata,tocheck:category}} />
         </div>
 
-        <div className="condition filter-wrapper flex-col">
+        <div className="condition">
           <h2>Conditions</h2>
-          {filter.condition.map((condition) => {
-            return (
-              <div className="flex-row spac_bord">
-                <input type="radio" name="cond" id="cond1" />
-                <label htmlFor="cond1">{condition.cond}</label>
-              </div>
-            );
-          })}
+          <Input inputs={{data:conditions,tocheck:condition}}/>
         </div>
 
-        <div className="condition filter-wrapper flex-col">
+        <div className="condition">
           <h2>User Ratings</h2>
-          {filter.user_rat.map((rating) => {
-            return (
-              <div className="flex-row spac_bord">
-                <input type="radio" name="condn" id="cond1" />
-                <label htmlFor="cond1">{rating.rating_category}</label>
-              </div>
-            );
-          })}
+          <Input inputs={{data:user_rating,tocheck:rating}} />
         </div>
       </div>
     </div>

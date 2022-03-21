@@ -1,5 +1,5 @@
 import React from "react";
-import filter from "../../filter-data";
+import {sort} from "../../filter-data";
 import { SORT } from "../../constant/filterConstant";
 import { useFilter } from "../../Context/filter-context";
 
@@ -14,7 +14,7 @@ const SelectInput = () => {
           dispactherforfilter({ type: SORT, payload: e.target.value })
         }
       >
-        {filter.sortArr.map((data) => {
+        {sort.map((data) => {
           return (
             <option key={data.val} value={data.val}>
               {data.optionName}

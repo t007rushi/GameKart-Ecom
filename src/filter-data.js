@@ -1,77 +1,86 @@
-const categ = [
+import { CATEGORY, CONDITION, RATING } from "./constant/filterConstant";
+
+const categorydata = [
   {
-    category: "Games",
+    inputName: "Games",
     match: "games",
+    val: "GAMES",
+    inputType: "checkbox",
     type: "GAMES",
+    name: "games",
   },
   {
-    category: "Console",
+    inputName: "Console",
     match: "console",
+    val: "CONSOLE",
+    inputType: "checkbox",
     type: "CONSOLE",
+    name: "console",
   },
   {
-    category: "Accesories",
+    inputName: "Accesories",
     match: "accesories",
+    val: "ACCESORIES",
+    inputType: "checkbox",
     type: "ACCESORIES",
+    name: "accesories",
   },
 ];
 const user_rating = [
   {
-    rating_category: "4-Star & above",
+    inputName: "4-Star & above",
+    type: RATING,
     val: 4,
+    inputType: "radio",
+    name: "rating",
   },
   {
-    rating_category: "3-Star & above",
+    inputName: "3-Star & above",
+    type: RATING,
     val: 3,
+    inputType: "radio",
+    name: "rating",
   },
   {
-    rating_category: "2-Star & above",
+    inputName: "2-Star & above",
+    type: RATING,
     val: 2,
+    inputType: "radio",
+    name: "rating",
   },
   {
-    rating_category: "1-Star & above",
+    inputName: "1-Star & above",
+    type: RATING,
     val: 1,
+    inputType: "radio",
+    name: "rating",
   },
 ];
 
 const conditions = [
   {
-    cond: "Pre-owned",
+    inputName: "Pre-owned",
+    type: CONDITION,
     val: "pre-owned",
+    inputType: "radio",
+    name: "condition",
   },
   {
-    cond: "New",
+    inputName: "New Games",
+    type: CONDITION,
     val: "new",
+    inputType: "radio",
+    name: "condition",
   },
   {
-    cond: "Pre-order",
+    inputName: "Pre-order",
+    type: CONDITION,
     val: "pre-order",
+    inputType: "radio",
+    name: "condition",
   },
 ];
 
-const genre = [
-  {
-    Genre: "Action",
-  },
-  {
-    Genre: "Adventure",
-  },
-  {
-    Genre: "Racing",
-  },
-  {
-    Genre: "Sports",
-  },
-  {
-    Genre: "Dance",
-  },
-  {
-    Genre: "FPS",
-  },
-  {
-    Genre: "Horror",
-  },
-];
 const sort = [
   {
     optionName: "select option",
@@ -95,11 +104,4 @@ const sort = [
   },
 ];
 
-const filter = {
-  category: categ,
-  user_rat: user_rating,
-  condition: conditions,
-  genre: genre,
-  sortArr: sort,
-};
-export default filter;
+export { categorydata, user_rating, conditions, sort };
