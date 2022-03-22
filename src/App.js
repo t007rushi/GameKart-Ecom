@@ -1,23 +1,36 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import {
   Home,
   Header,
   ProductList,
+  LogIn,
+  SignUpPage,
+  Cart,
 } from "./pages/index.js";
-import Mockman from "mockman-js"
+import Mockman from "mockman-js";
+import ProtectedRoute from "./Router/ProtectedRoute";
 
 function App() {
   return (
     <div>
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/mockman" element={<Mockman />}></Route>
-          <Route path="/products" element={<ProductList />}></Route>
-        </Routes>
-      </Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/mockman" element={<Mockman />}></Route>
+        <Route path="/products" element={<ProductList />}></Route>
+        <Route path="/login" element={<LogIn />}></Route>
+        <Route path="/signup" element={<SignUpPage />}></Route>
+        {/* Protected Routes */}
+        <Route
+          path="/cart"
+          element={<ProtectedRoute ProtectedComp={<Cart />}></ProtectedRoute>}
+        ></Route>
+        <Route
+          path="/wishlist"
+          element={<ProtectedRoute ProtectedComp={<Cart />}></ProtectedRoute>}
+        ></Route>
+      </Routes>
     </div>
   );
 }
