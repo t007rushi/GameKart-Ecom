@@ -18,14 +18,15 @@ export default function SignUp() {
           <img src="./assets/auth/matrix.jpg" alt="" className="form-img" />
           <form
             className="flex-col center-it form-block"
-            onSubmit={(e) =>
-              signupHandler(e, {
+            onSubmit={(e) => {
+              e.preventDefault();
+              signupHandler({
                 first: signUser.first,
                 last: signUser.last,
                 email: signUser.email,
                 pass: signUser.pass,
-              })
-            }
+              });
+            }}
           >
             <h2 className="form-title">SIGN UP</h2>
             <label htmlFor="Name" className="flex-col form-input-txt">

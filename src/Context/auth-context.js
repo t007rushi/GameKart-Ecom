@@ -9,9 +9,7 @@ const AuthProvider = ({ children }) => {
   const navigator = useNavigate();
 
   //SIGNUP
-  const signupHandler = async (e, { first, last, email, pass }) => {
-    e.preventDefault();
-
+  const signupHandler = async ( { first, last, email, pass }) => {
     try {
       const { data } = await axios.post(`/api/auth/signup`, {
         firstName: first,
@@ -28,8 +26,7 @@ const AuthProvider = ({ children }) => {
   };
 
   //LOGIN
-  const loginHandler = (e, { email, pass }) => {
-    e.preventDefault();
+  const loginHandler = ( { email, pass }) => {
     (async () => {
       try {
         const { data, status } = await axios.post("/api/auth/login", {

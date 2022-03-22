@@ -18,7 +18,8 @@ export default function LoginPage() {
           <form
             className="flex-col center-it form-block login-block"
             onSubmit={(e) =>
-              loginHandler(e, { email: logUser.email, pass: logUser.pass })
+              {e.preventDefault();
+                loginHandler( { email: logUser.email, pass: logUser.pass })}
             }
           >
             <h2 className="form-title">LOGIN</h2>
@@ -55,12 +56,12 @@ export default function LoginPage() {
             </button>
             <button
               className="btn card-btn"
-              onClick={(e) =>
-                loginHandler(e, {
+              onClick={(e) =>{e.preventDefault();
+                loginHandler( {
                   email: "adarshbalika@gmail.com",
                   pass: "adarshbalika",
                 })
-              }
+              }}
             >
               LOGIN as GUEST
             </button>
