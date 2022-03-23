@@ -7,6 +7,7 @@ import {
   LogIn,
   SignUpPage,
   Cart,
+  Wishlist
 } from "./pages/index.js";
 import Mockman from "mockman-js";
 import ProtectedRoute from "./Router/ProtectedRoute";
@@ -28,7 +29,7 @@ function App() {
         ></Route>
         <Route
           path="/wishlist"
-          element={<ProtectedRoute ProtectedComp={<Cart />}></ProtectedRoute>}
+          element={<ProtectedRoute ProtectedComp={<Wishlist />}></ProtectedRoute>}
         ></Route>
       </Routes>
     </div>
