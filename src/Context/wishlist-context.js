@@ -8,6 +8,7 @@ const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const { user } = useAuth();
 
+  //GET WISHLIST
   const loadWishlist = async () => {
     try {
       const { data } = await axios.get("api/user/wishlist", {
@@ -21,8 +22,31 @@ const WishlistProvider = ({ children }) => {
     }
   };
 
+  const addToWish = (product) => {
+    wishlist.find((prod) => prod.id === product.id)
+      ? alert("Already in wishlist")
+      : (async () => {
+          try {
+            const { data } = await axios.post(
+              "api/user/wishlist",
+              { product },
+              {
+                headers: {
+                  authorization: user.tokenVal,
+                },
+              }
+            );
+            setWishlist(data.wishlist);
+          } catch (error) {
+            console.error("wishlist error", error);
+          }
+        })();
+  };
+
   return (
-    <wishlistContext.Provider value={{ wishlist, setWishlist, loadWishlist }}>
+    <wishlistContext.Provider
+      value={{ wishlist, setWishlist, loadWishlist, addToWish }}
+    >
       {children}
     </wishlistContext.Provider>
   );

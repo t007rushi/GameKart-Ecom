@@ -1,16 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useWishlist } from "../../Context/wishlist-context";
-import {Card} from "../../components/index"
-import { useEffect } from "react";
-
+import { Card } from "../../components/index";
 export default function Wishlist() {
-  const { wishlist,loadWishlist } = useWishlist();
+  const { wishlist, loadWishlist } = useWishlist();
 
-  useEffect(() =>{
-    loadWishlist()
-  },[])
+  useEffect(() => {
+    loadWishlist();
+  }, []);
 
   return (
     <div className="wishlist-wrap">
@@ -21,16 +19,11 @@ export default function Wishlist() {
         </>
       ) : (
         <>
-          <h1 className="wishlist-head">Wishlist Items({wishlist.length})</h1>
+          <h1 className="wishlist-head">Wishlist Items({wishlist.length}) </h1>
+          <Link to="/products">Browse products to add</Link>
           <div className="card-collection">
             {wishlist.map((prod) => {
-              return (
-                <Card
-                  prodArr={{
-                    prod: prod
-                  }}
-                />
-              );
+              return <Card key={prod.id} prod={prod} />;
             })}
           </div>
         </>

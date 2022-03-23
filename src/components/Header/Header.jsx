@@ -2,15 +2,17 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../Context/auth-context";
 import "./Header.css";
-import {signOutHandler} from "../../services"
+import { signOutHandler } from "../../services";
+import { useWishlist } from "../../Context/wishlist-context";
 
 export default function Header() {
-  const { user,setUser  } = useAuth();
+  const { user, setUser } = useAuth();
   const { pathname } = useLocation();
+  const { wishlist } = useWishlist();
   const NavLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
-    }; 
+    };
   };
   return (
     <div>
@@ -49,9 +51,11 @@ export default function Header() {
               <div className="relative-container">
                 <i className="material-icons header-icon">
                   favorite_border
-                  <div className="badge top-right lrg red-clr flex-row center-it">
-                    3
-                  </div>
+                  {user.isUserLoggedIn ? (
+                    <div className="badge top-right lrg red-clr flex-row center-it">
+                      {wishlist.length}
+                    </div>
+                  ) : null}
                 </i>
               </div>
             </NavLink>
