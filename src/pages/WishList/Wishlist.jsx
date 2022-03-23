@@ -1,10 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { Link } from "react-router-dom";
 import { useWishlist } from "../../Context/wishlist-context";
 import {Card} from "../../components/index"
+import { useEffect } from "react";
 
 export default function Wishlist() {
-  const { wishlist } = useWishlist();
+  const { wishlist,loadWishlist } = useWishlist();
+
+  useEffect(() =>{
+    loadWishlist()
+  },[])
 
   return (
     <div className="wishlist-wrap">
