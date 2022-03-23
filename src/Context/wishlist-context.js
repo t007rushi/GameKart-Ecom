@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
 import { useAuth } from "./auth-context";
+import { useEffect } from "react";
 
 const wishlistContext = createContext();
 
@@ -9,20 +10,25 @@ const WishlistProvider = ({ children }) => {
   const { user } = useAuth();
 
   //GET WISHLIST
-  const loadWishlist = async () => {
-    try {
-      const { data } = await axios.get("api/user/wishlist", {
-        headers: {
-          authorization: user.tokenVal,
-        },
-      });
-      setWishlist(data.wishlist);
-    } catch (error) {
-      console.error("wishlist error", error);
-    }
-  };
+  useEffect(() => {
+    user.isUserLoggedIn
+      ? (async () => {
+          try {
+            const { data } = await axios.get("api/user/wishlist", {
+              headers: {
+                authorization: user.tokenVal,
+              },
+            });
+            setWishlist(data.wishlist);
+          } catch (error) {
+            console.error("wishlist error", error);
+          }
+        })()
+      : setWishlist([]);
+  }, [user]);
 
-  const addToWish = (product) => {
+  //ADD to the wishlist
+  const addToWishlist = (product) => {
     wishlist.find((prod) => prod.id === product.id)
       ? alert("Already in wishlist")
       : (async () => {
@@ -43,9 +49,28 @@ const WishlistProvider = ({ children }) => {
         })();
   };
 
+  //delete from wishlist
+  const removeFromWishlist = async (id) => {
+    try {
+      const { data } = await axios.delete(`api/user/wishlist/${id}`, {
+        headers: {
+          authorization: user.tokenVal,
+        },
+      });
+      setWishlist(data.wishlist);
+    } catch (error) {
+      console.error("wishlist error", error);
+    }
+  };
+
   return (
     <wishlistContext.Provider
-      value={{ wishlist, setWishlist, loadWishlist, addToWish }}
+      value={{
+        wishlist,
+        setWishlist,
+        addToWishlist,
+        removeFromWishlist,
+      }}
     >
       {children}
     </wishlistContext.Provider>

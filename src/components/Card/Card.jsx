@@ -4,9 +4,8 @@ import { useWishlist } from "../../Context/wishlist-context";
 import "./Card.css";
 
 const Card = ({ prod }) => {
-  const { addToWish } = useWishlist();
+  const { addToWishlist, removeFromWishlist, wishlist } = useWishlist();
   const { user } = useAuth();
-
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -41,17 +40,25 @@ const Card = ({ prod }) => {
             <p>BUY NOW</p>
           </button>
         </div>
-        <i
-          className="material-icons wishlist-abs wishlist-rmv bg-none cur-point"
-          onClick={() =>
-            user.isUserLoggedIn
-              ? addToWish(prod)
-              : alert("Log In to Continue")
-          }
-        >
-          favorite
-        </i>
-        {/* <i className="material-icons wishlist-abs cur-point bg-none "> favorite </i> */}
+        {wishlist.find((item) => item._id === prod._id) ? (
+          <i
+            className="material-icons wishlist-abs bg-none cur-point"
+            onClick={() => removeFromWishlist(prod._id)}
+          >
+            favorite
+          </i>
+        ) : (
+          <i
+            className="material-icons wishlist-abs wishlist-rmv cur-point bg-none"
+            onClick={() =>
+              user.isUserLoggedIn
+                ? addToWishlist(prod)
+                : alert("Log In to Continue")
+            }
+          >
+            favorite
+          </i>
+        )}
       </div>
     </div>
   );
