@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/auth-context";
 import { useWishlist } from "../../Context/wishlist-context";
 import "./Card.css";
+import { addToWishlist, removeFromWishlist } from "../../services";
 
 const Card = ({ prod }) => {
-  const { addToWishlist, removeFromWishlist, wishlist } = useWishlist();
+  const { setWishlist, wishlist } = useWishlist();
   const { user } = useAuth();
+  const navigator = useNavigate();
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -17,7 +20,6 @@ const Card = ({ prod }) => {
             {prod.rating}
             <span className="material-icons star-icon"> star </span>
           </div>
-
           <span className="card-price">
             <sup>₹</sup>
             {prod.price}
@@ -43,18 +45,21 @@ const Card = ({ prod }) => {
         {wishlist.find((item) => item._id === prod._id) ? (
           <i
             className="material-icons wishlist-abs bg-none cur-point"
-            onClick={() => removeFromWishlist(prod._id)}
+            onClick={() => removeFromWishlist(prod._id, user, setWishlist)}
           >
             favorite
           </i>
         ) : (
           <i
             className="material-icons wishlist-abs wishlist-rmv cur-point bg-none"
-            onClick={() =>
-              user.isUserLoggedIn
-                ? addToWishlist(prod)
-                : alert("Log In to Continue")
-            }
+            onClick={() => {
+              if (user.isUserLoggedIn) {
+                addToWishlist(prod, user, wishlist, setWishlist);
+              } else {
+                alert("Log In to Continue");
+                navigator("/login");
+              }
+            }}
           >
             favorite
           </i>
