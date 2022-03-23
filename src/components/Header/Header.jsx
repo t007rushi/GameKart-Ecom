@@ -2,14 +2,15 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../Context/auth-context";
 import "./Header.css";
+import {signOutHandler} from "../../services"
 
 export default function Header() {
-  const { logout, user } = useAuth();
+  const { user,setUser  } = useAuth();
   const { pathname } = useLocation();
   const NavLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
-    };
+    }; 
   };
   return (
     <div>
@@ -63,14 +64,12 @@ export default function Header() {
               </div>
             </NavLink>
             {user.isUserLoggedIn ? (
-              <NavLink
-                to="/"
-                style={NavLinkStyles}
+              <i
                 className="material-icons header-icon lg-out"
-                onClick={logout}
+                onClick={() => signOutHandler(setUser)}
               >
                 logout
-              </NavLink>
+              </i>
             ) : (
               <NavLink
                 to="/"

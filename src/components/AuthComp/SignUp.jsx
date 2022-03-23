@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useAuth } from "../../Context/auth-context";
+import { Link, useNavigate } from "react-router-dom";
+import { signUpHandler } from "../../services";
 
 export default function SignUp() {
-  const { signupHandler } = useAuth();
   const [signUser, setSignUser] = useState({
     first: "",
     last: "",
     email: "",
     pass: "",
   });
+  const navigator = useNavigate();
 
   return (
     <div className="flex-row center-it">
@@ -20,12 +20,7 @@ export default function SignUp() {
             className="flex-col center-it form-block"
             onSubmit={(e) => {
               e.preventDefault();
-              signupHandler({
-                first: signUser.first,
-                last: signUser.last,
-                email: signUser.email,
-                pass: signUser.pass,
-              });
+              signUpHandler(signUser, navigator);
             }}
           >
             <h2 className="form-title">SIGN UP</h2>

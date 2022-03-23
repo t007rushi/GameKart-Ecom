@@ -1,14 +1,20 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/auth-context";
 import "./authForm.css";
+import { logInHandler } from "../../services";
 
 export default function LoginPage() {
-  const { loginHandler } = useAuth();
+  const { setUser } = useAuth();
   const [logUser, setLogUser] = useState({
     email: "",
     pass: "",
   });
+  const guestUser = {
+    email: "adarshbalika@gmail.com",
+    pass: "adarshbalika",
+  };
+  const navigator = useNavigate();
 
   return (
     <div className="flex-row center-it">
@@ -17,10 +23,10 @@ export default function LoginPage() {
           <img src="./assets/auth/matrix.jpg" alt="" className="form-img" />
           <form
             className="flex-col center-it form-block login-block"
-            onSubmit={(e) =>
-              {e.preventDefault();
-                loginHandler( { email: logUser.email, pass: logUser.pass })}
-            }
+            onSubmit={(e) => {
+              e.preventDefault();
+              logInHandler(logUser, setUser, navigator);
+            }}
           >
             <h2 className="form-title">LOGIN</h2>
             <label htmlFor="email" className="flex-col form-input-txt">
@@ -56,11 +62,9 @@ export default function LoginPage() {
             </button>
             <button
               className="btn card-btn"
-              onClick={(e) =>{e.preventDefault();
-                loginHandler( {
-                  email: "adarshbalika@gmail.com",
-                  pass: "adarshbalika",
-                })
+              onClick={(e) => {
+                e.preventDefault();
+                logInHandler(guestUser, setUser, navigator);
               }}
             >
               LOGIN as GUEST
