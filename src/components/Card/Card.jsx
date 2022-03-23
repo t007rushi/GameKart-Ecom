@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({prod}) => {
+const Card = ({ prod }) => {
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -24,7 +24,7 @@ const Card = ({prod}) => {
           <button
             className="card-btn primary-btn flex-row center-it"
             onClick={() => {}}
-            >
+          >
             <p>Add to wishlist</p>
             <p>
               <i className="material-icons"> favorite </i>
@@ -44,12 +44,3 @@ const Card = ({prod}) => {
 };
 
 export default Card;
-
-// const { pathname } = useLocation();
-// import { Link, useLocation } from "react-router-dom";
-// import { useCart } from "../../Context/cartContext";
-// import { useWishlist } from "../../Context/wishlistContext";
-// const {
-  //   cartState: { cartArr },
-  // } = useCart();
-// const {wishState:{wishlist}} = useWishlist();

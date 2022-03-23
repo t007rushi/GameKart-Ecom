@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
-@import url('https://spectre-ui.netlify.app/documentation/styles.css');
+@import url("https://spectre-ui.netlify.app/documentation/styles.css");
 @import url("https://game-kart.netlify.app/components/main.css");
 
-.cur-point{
-    cursor:pointer;
+.cur-point {
+  cursor: pointer;
 }

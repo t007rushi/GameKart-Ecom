@@ -1,22 +1,31 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom";
+import { useAuth } from "../../Context/auth-context";
+import "./Header.css";
+import {signOutHandler} from "../../services"
 
 export default function Header() {
+  const { user,setUser  } = useAuth();
+  const { pathname } = useLocation();
+  const NavLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+    }; 
+  };
   return (
     <div>
       <>
         <header className="flex-row header-bar">
           <div className="flex-row header-left">
             <i className="material-icons header-icon"> menu </i>
-            <Link to="/" className="hm-pg-link">
+            <NavLink to="/" className="hm-pg-link">
               <h1 className="flex-row web-logo">
                 <span className="material-icons web-logo-icon">
-                  {" "}
-                  sports_esports{" "}
+                  sports_esports
                 </span>
                 GameKart
               </h1>
-            </Link>
+            </NavLink>
           </div>
           <div className="flex-row header-mid">
             <i className="material-icons"> search </i>
@@ -26,11 +35,17 @@ export default function Header() {
               className="search-bar"
             />
           </div>
-          <a href="./screens/LoginPage.html">
-            <button className="btn primary-btn">LOGIN</button>
-          </a>
+
+          {!user.isUserLoggedIn &&
+          !(pathname === "/login") &&
+          !(pathname === "/signup") ? (
+            <NavLink to="/login" style={NavLinkStyles}>
+              <button className="btn primary-btn">LOGIN</button>
+            </NavLink>
+          ) : null}
+
           <div className="flex-row header-right">
-            <a href="./screens/wishlist.html">
+            <NavLink to="/wishlist" style={NavLinkStyles}>
               <div className="relative-container">
                 <i className="material-icons header-icon">
                   favorite_border
@@ -39,16 +54,31 @@ export default function Header() {
                   </div>
                 </i>
               </div>
-            </a>
-            <a href="./screens/mycart.html" className="cart">
+            </NavLink>
+            <NavLink to="/cart" style={NavLinkStyles} className="cart">
               <div className="flex-row relative-container">
                 <i className="material-icons header-icon"> shopping_cart </i>
                 <div className="badge top-right lrg red-clr flex-row center-it">
                   2
                 </div>
               </div>
-            </a>
-            <i className="material-icons header-icon"> logout </i>
+            </NavLink>
+            {user.isUserLoggedIn ? (
+              <i
+                className="material-icons header-icon lg-out"
+                onClick={() => signOutHandler(setUser)}
+              >
+                logout
+              </i>
+            ) : (
+              <NavLink
+                to="/"
+                style={NavLinkStyles}
+                className="material-icons header-icon lg-out"
+              >
+                expand_more
+              </NavLink>
+            )}
           </div>
         </header>
       </>

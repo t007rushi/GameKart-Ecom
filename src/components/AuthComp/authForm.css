@@ -1,0 +1,71 @@
+.Auth-page-content {
+  height: 48.45rem;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+/* forms */
+.form-wrap {
+  height: 30rem;
+  width: 45rem;
+}
+
+/* form image */
+.form-img {
+  height: 100%;
+  width: 40%;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.form-block {
+  gap: 0.5rem;
+  background-color: var(--white-color);
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.form-mid {
+  margin: 1rem;
+  gap: 0.7rem;
+}
+
+.form-text {
+  color: var(--hmpg-secondary-color);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-input-txt {
+  width: 20rem;
+}
+
+.form-input-box {
+  padding: 0.7rem 0;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid var(--btn-primary-color);
+}
+
+.form-input-box:focus {
+  outline: none;
+}
+
+/* login */
+.login-block {
+  gap: 1.5rem;
+}
+.newAcc {
+  cursor: pointer;
+  color: var(--hmpg-secondary-color);
+  text-decoration: none;
+}
+
+/* sign-up */
+.form-cond {
+  color: var(--btn-primary-color);
+  text-decoration: none;
+}
+
+.acc-color {
+  accent-color: var(--secondary-color);
+}
