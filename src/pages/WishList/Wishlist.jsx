@@ -6,7 +6,6 @@ import { Card } from "../../components/index";
 
 export default function Wishlist() {
   const { wishlist } = useWishlist();
- 
 
   return (
     <div className="wishlist-wrap">
