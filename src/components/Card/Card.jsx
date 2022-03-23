@@ -1,4 +1,5 @@
 import React from "react";
+import "./Card.css"
 
 const Card = ({ prod }) => {
   return (
@@ -25,19 +26,18 @@ const Card = ({ prod }) => {
             className="card-btn primary-btn flex-row center-it"
             onClick={() => {}}
           >
-            <p>Add to wishlist</p>
-            <p>
-              <i className="material-icons"> favorite </i>
-            </p>
+            <span className="material-icons icon">shopping_cart</span>
+            <p>Add to Cart</p>
           </button>
 
           {/* button2 */}
 
           <button className="card-btn card-icon-btn" onClick={() => {}}>
-            <span className="material-icons icon">shopping_cart</span>
-            <p>Add to Cart</p>
+            <p>BUY NOW</p>
           </button>
         </div>
+        <i className="material-icons wishlist-abs wishlist-rmv bg-none cur-point" > favorite </i>
+        {/* <i className="material-icons wishlist-abs cur-point bg-none "> favorite </i> */}
       </div>
     </div>
   );
