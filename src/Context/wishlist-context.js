@@ -9,17 +9,18 @@ const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const { user } = useAuth();
 
-  //GET WISHLIST 
+  //GET WISHLIST
   useEffect(() => {
-    user.isUserLoggedIn
-      ? (async () => {
-          
-            const  data  = await getWishlist(user,setWishlist);
-            if(data !== undefined) {
-              setWishlist(data)
-            }
-      })()
-      : setWishlist([]);
+    if (user.isUserLoggedIn) {
+      (async () => {
+        const data = await getWishlist(user);
+        if (data !== undefined) {
+          setWishlist(data.wishlist);
+        }
+      })();
+    } else {
+      setWishlist([]);
+    }
   }, [user]);
 
   return (
