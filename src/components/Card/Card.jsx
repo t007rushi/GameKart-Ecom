@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../Context/auth-context";
+import { useWishlist } from "../../Context/wishlist-context";
+import "./Card.css";
 
 const Card = ({ prod }) => {
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const { user } = useAuth();
+  const navigator = useNavigate();
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -12,7 +19,6 @@ const Card = ({ prod }) => {
             {prod.rating}
             <span className="material-icons star-icon"> star </span>
           </div>
-
           <span className="card-price">
             <sup>₹</sup>
             {prod.price}
@@ -25,19 +31,38 @@ const Card = ({ prod }) => {
             className="card-btn primary-btn flex-row center-it"
             onClick={() => {}}
           >
-            <p>Add to wishlist</p>
-            <p>
-              <i className="material-icons"> favorite </i>
-            </p>
+            <span className="material-icons icon">shopping_cart</span>
+            <p>Add to Cart</p>
           </button>
 
           {/* button2 */}
 
           <button className="card-btn card-icon-btn" onClick={() => {}}>
-            <span className="material-icons icon">shopping_cart</span>
-            <p>Add to Cart</p>
+            <p>BUY NOW</p>
           </button>
         </div>
+        {wishlist.find((item) => item._id === prod._id) ? (
+          <i
+            className="material-icons wishlist-abs bg-none cur-point"
+            onClick={() => removeFromWishlist(prod._id, user)}
+          >
+            favorite
+          </i>
+        ) : (
+          <i
+            className="material-icons wishlist-abs wishlist-rmv cur-point bg-none"
+            onClick={() => {
+              if (user.isUserLoggedIn) {
+                addToWishlist(prod, user);
+              } else {
+                alert("Log In to Continue");
+                navigator("/login");
+              }
+            }}
+          >
+            favorite
+          </i>
+        )}
       </div>
     </div>
   );

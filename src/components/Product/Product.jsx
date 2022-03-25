@@ -37,10 +37,3 @@ export default function Product() {
   );
 }
 
-//commented code
-// import { useCart } from "../../Context/cartContext";
-// import { useWishlist } from "../../Context/wishlistContext";
-// const { cartDispatcher } = useCart();
-// const { wishDispatcher } = useWishlist();
-// fun1: wishDispatcher,
-// fun2: cartDispatcher,

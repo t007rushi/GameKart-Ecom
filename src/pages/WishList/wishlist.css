@@ -1,0 +1,9 @@
+.wishlist-wrap {
+    margin: 5rem;
+    text-align: center;
+  }
+
+  .wishlist-head {
+    border-bottom: 1px solid var(--secondary-color);
+    padding-bottom: 1rem;
+  }

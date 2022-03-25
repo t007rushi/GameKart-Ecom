@@ -1,0 +1,11 @@
+.wishlist-add{
+    color: red;
+}
+
+.wishlist-rmv{
+    color: lightgrey;
+}
+
+.bg-none{
+    background-color: transparent;
+}

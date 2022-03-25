@@ -10,7 +10,7 @@ export const logInHandler = ({ email, pass }, setUser, navigator) => {
       });
       if (status === 200) {
         localStorage.setItem("token", JSON.stringify(data.encodedToken));
-        setUser({ isUserLoggedIn: true });
+        setUser({tokenVal:JSON.stringify(data.encodedToken), isUserLoggedIn: true });
         navigator("/");
       }
     } catch (error) {
