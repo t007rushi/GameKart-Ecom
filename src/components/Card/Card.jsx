@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/auth-context";
 import { useWishlist } from "../../Context/wishlist-context";
 import "./Card.css";
-import { addToWishlist, removeFromWishlist } from "../../services";
 
 const Card = ({ prod }) => {
-  const { setWishlist, wishlist } = useWishlist();
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const { user } = useAuth();
   const navigator = useNavigate();
   return (
@@ -45,7 +44,7 @@ const Card = ({ prod }) => {
         {wishlist.find((item) => item._id === prod._id) ? (
           <i
             className="material-icons wishlist-abs bg-none cur-point"
-            onClick={() => removeFromWishlist(prod._id, user, setWishlist)}
+            onClick={() => removeFromWishlist(prod._id, user)}
           >
             favorite
           </i>
@@ -54,7 +53,7 @@ const Card = ({ prod }) => {
             className="material-icons wishlist-abs wishlist-rmv cur-point bg-none"
             onClick={() => {
               if (user.isUserLoggedIn) {
-                addToWishlist(prod, user, wishlist, setWishlist);
+                addToWishlist(prod, user);
               } else {
                 alert("Log In to Continue");
                 navigator("/login");

@@ -1,7 +1,11 @@
 import { createContext, useContext, useState } from "react";
 import { useAuth } from "./auth-context";
 import { useEffect } from "react";
-import { getWishlist } from "../services";
+import {
+  getWishlist,
+  addToWishlistService,
+  removeFromWishlistService,
+} from "../services";
 
 const wishlistContext = createContext();
 
@@ -23,11 +27,29 @@ const WishlistProvider = ({ children }) => {
     }
   }, [user]);
 
+  //ADD TO WISH
+  const addToWishlist = async (prod) => {
+    const newWish = await addToWishlistService(prod, user);
+    if (newWish !== undefined) {
+      setWishlist(newWish.wishlist);
+    }
+  };
+
+  //REMOVE TO WISH
+  const removeFromWishlist = async (id) => {
+    const rmvWishlist = await removeFromWishlistService(id, user);
+    if (rmvWishlist !== undefined) {
+      setWishlist(rmvWishlist.wishlist);
+    }
+  };
+
   return (
     <wishlistContext.Provider
       value={{
         wishlist,
         setWishlist,
+        addToWishlist,
+        removeFromWishlist,
       }}
     >
       {children}
