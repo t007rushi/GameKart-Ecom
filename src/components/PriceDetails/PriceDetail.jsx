@@ -1,10 +1,11 @@
 import React from "react";
 import { useCart } from "../../Context/cart-context";
+import "./pricedetails.css"
 
 const PriceDetail = () => {
     const { TotalPrice } = useCart();
   return (
-    <div className="flex-col gap-btwn order-detail-wrap">
+    <div className="flex-col gap-btwn order-detail-wrap pos-fix">
       <h1 className="cart-head">PRICE DETAILS</h1>
       <div className="cart-items flex-row spc-btwn">
         <p>Price Items(2)</p>
