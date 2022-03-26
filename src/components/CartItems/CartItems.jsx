@@ -35,6 +35,7 @@ const CartItems = () => {
                 className="card-btn primary-btn"
                 onClick={() => {
                   addToWishlist(cartItem);
+
                   removeFromCart(cartItem._id);
                 }}
               >
