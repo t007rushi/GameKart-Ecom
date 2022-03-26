@@ -47,7 +47,6 @@ const CartProvider = ({ children }) => {
     <cartContext.Provider
       value={{
         cart,
-        setCart,
         addToCart,
         removeFromCart,
       }}
