@@ -4,11 +4,13 @@ import { useAuth } from "../../Context/auth-context";
 import "./Header.css";
 import { signOutHandler } from "../../services";
 import { useWishlist } from "../../Context/wishlist-context";
+import { useCart } from "../../Context/cart-context";
 
 export default function Header() {
   const { user, setUser } = useAuth();
   const { pathname } = useLocation();
   const { wishlist } = useWishlist();
+  const {cart}  = useCart()
   const NavLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
@@ -63,7 +65,7 @@ export default function Header() {
               <div className="flex-row relative-container">
                 <i className="material-icons header-icon"> shopping_cart </i>
                 <div className="badge top-right lrg red-clr flex-row center-it">
-                  2
+                  {cart.length}
                 </div>
               </div>
             </NavLink>
