@@ -5,6 +5,7 @@ import {
   getCart,
   addToCartService,
   removeFromCartService,
+  updateCartQuantService,
 } from "../services";
 
 const cartContext = createContext();
@@ -43,12 +44,22 @@ const CartProvider = ({ children }) => {
     }
   };
 
+  //QUANTIY INCR/DECR
+  const updateCartQuant = async (id,quantAct) => {
+const data = await updateCartQuantService(id,user,quantAct)
+// console.log(data)
+if(data!==undefined){
+  setCart(data.cart);
+}
+  }
+
   return (
     <cartContext.Provider
       value={{
         cart,
         addToCart,
         removeFromCart,
+        updateCartQuant
       }}
     >
       {children}

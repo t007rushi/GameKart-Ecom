@@ -3,7 +3,7 @@ import { useCart } from "../../Context/cart-context";
 import { useWishlist } from "../../Context/wishlist-context";
 
 const CartItems = () => {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart,updateCartQuant } = useCart();
 
   const { addToWishlist } = useWishlist();
   return (
@@ -23,11 +23,16 @@ const CartItems = () => {
               </span>
               <div className="flex-row center-it gap-btwn">
                 <p>Quantity:</p>
-                <button className="cart-quant-btn" onClick={() => {}}>
+                <button className="cart-quant-btn" onClick={() => {
+                  cartItem.qty ===1?removeFromCart(cartItem._id):
+                  updateCartQuant(cartItem._id,"decrement")
+                }}>
                   -
                 </button>
-                <div className="cart-quant-cnt">{cartItem.quantity}</div>
-                <button className="cart-quant-btn" onClick={() => {}}>
+                <div className="cart-quant-cnt">{cartItem.qty}</div>
+                <button className="cart-quant-btn" onClick={() => {
+                  updateCartQuant(cartItem._id,"increment")
+                }}>
                   +
                 </button>
               </div>

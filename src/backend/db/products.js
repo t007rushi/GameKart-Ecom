@@ -17,7 +17,6 @@ export const products = [
     genre: "fps",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-05-22"),
   },
   {
@@ -31,7 +30,6 @@ export const products = [
     genre: null,
     category: "console",
     condition: "pre-order",
-    quantity: 1,
     released: new Date("03-06-22"),
   },
   {
@@ -45,7 +43,6 @@ export const products = [
     genre: "fps",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-03-22"),
   },
   {
@@ -59,7 +56,6 @@ export const products = [
     genre: null,
     category: "console",
     condition: "pre-owned",
-    quantity: 1,
     released: new Date("03-08-22"),
   },
   {
@@ -73,7 +69,6 @@ export const products = [
     genre: null,
     category: "accesories",
     condition: "new",
-    quantity: 1,
     released: new Date("03-10-22"),
   },
   {
@@ -87,7 +82,6 @@ export const products = [
     genre: "adventure",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-07-22"),
   },
   {
@@ -101,7 +95,6 @@ export const products = [
     genre: "adventure",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-10-22"),
   },
   {
@@ -115,7 +108,6 @@ export const products = [
     genre: "action",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-03-22"),
   },
   {
@@ -129,7 +121,6 @@ export const products = [
     genre: "horror",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-02-22"),
   },
   {
@@ -143,7 +134,6 @@ export const products = [
     genre: "action",
     category: "games",
     condition: "new",
-    quantity: 1,
 
     released: new Date("03-04-22"),
   },
@@ -158,7 +148,6 @@ export const products = [
     genre: "fps",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-01-22"),
   },
   {
@@ -172,7 +161,6 @@ export const products = [
     genre: "sports",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-02-22"),
   },
   {
@@ -186,7 +174,6 @@ export const products = [
     genre: "action",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-10-22"),
   },
   {
@@ -200,7 +187,6 @@ export const products = [
     genre: "action",
     category: "games",
     condition: "new",
-    quantity: 1,
     released: new Date("03-12-22"),
   },
   {
@@ -214,7 +200,6 @@ export const products = [
     genre: null,
     category: "accesories",
     condition: "new",
-    quantity: 1,
     released: new Date("03-11-22"),
   },
 ];
