@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/auth-context";
+import { useCart } from "../../Context/cart-context";
 import { useWishlist } from "../../Context/wishlist-context";
 import "./Card.css";
 
 const Card = ({ prod }) => {
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const { cart, addToCart } = useCart();
   const { user } = useAuth();
   const navigator = useNavigate();
   return (
@@ -25,15 +27,26 @@ const Card = ({ prod }) => {
             <s>2,970</s>
             <span className="card-discount">({prod.discount}%)</span>
           </span>
+
           {/* button1 */}
 
-          <button
-            className="card-btn primary-btn flex-row center-it"
-            onClick={() => {}}
-          >
-            <span className="material-icons icon">shopping_cart</span>
-            <p>Add to Cart</p>
-          </button>
+          {!cart.find((item) => item._id === prod._id) ? (
+            <button
+              className="card-btn primary-btn flex-row center-it"
+              onClick={() => addToCart(prod)}
+            >
+              <span className="material-icons icon">shopping_cart</span>
+              <p>Add to Cart</p>
+            </button>
+          ) : (
+            <button
+              className="card-btn primary-btn flex-row center-it"
+              onClick={() => navigator("/cart")}
+            >
+              <span className="material-icons icon">shopping_cart</span>
+              <p>Go to Cart</p>
+            </button>
+          )}
 
           {/* button2 */}
 
@@ -41,6 +54,7 @@ const Card = ({ prod }) => {
             <p>BUY NOW</p>
           </button>
         </div>
+        {/* icon button */}
         {wishlist.find((item) => item._id === prod._id) ? (
           <i
             className="material-icons wishlist-abs bg-none cur-point"
