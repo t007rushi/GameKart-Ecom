@@ -29,9 +29,9 @@ const CartProvider = ({ children }) => {
 
   //ADD TO CART
   const addToCart = async (prod) => {
-    const newWish = await addToCartService(prod, user);
-    if (newWish !== undefined) {
-      setCart(newWish.cart);
+    const newCart = await addToCartService(prod, user);
+    if (newCart !== undefined) {
+      setCart(newCart.cart);
     }
   };
 
