@@ -10,7 +10,7 @@ export default function Header() {
   const { user, setUser } = useAuth();
   const { pathname } = useLocation();
   const { wishlist } = useWishlist();
-  const {cart}  = useCart()
+  const { cart } = useCart();
   const NavLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
@@ -64,9 +64,11 @@ export default function Header() {
             <NavLink to="/cart" style={NavLinkStyles} className="cart">
               <div className="flex-row relative-container">
                 <i className="material-icons header-icon"> shopping_cart </i>
-                <div className="badge top-right lrg red-clr flex-row center-it">
-                  {cart.length}
-                </div>
+                {user.isUserLoggedIn ? (
+                  <div className="badge top-right lrg red-clr flex-row center-it">
+                    {cart.length}
+                  </div>
+                ) : null}
               </div>
             </NavLink>
             {user.isUserLoggedIn ? (

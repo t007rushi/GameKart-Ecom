@@ -7,3 +7,5 @@ export { getWishlist } from "./wishlist/getWishlist";
 export { addToCartService } from "./cart-service/addToCartService";
 export { removeFromCartService } from "./cart-service/removeFromCartService";
 export { getCart } from "./cart-service/getCart";
+export { updateCartQuantService } from "./cart-service/updateCartQuantService";
+export { cartSummaryService } from "./cart-service/cartSummary";
