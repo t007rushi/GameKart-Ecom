@@ -6,6 +6,7 @@ import {
   addToCartService,
   removeFromCartService,
   updateCartQuantService,
+  cartSummaryService,
 } from "../services";
 
 const cartContext = createContext();
@@ -45,13 +46,15 @@ const CartProvider = ({ children }) => {
   };
 
   //QUANTIY INCR/DECR
-  const updateCartQuant = async (id,quantAct) => {
-const data = await updateCartQuantService(id,user,quantAct)
-// console.log(data)
-if(data!==undefined){
-  setCart(data.cart);
-}
-  }
+  const updateCartQuant = async (id, quantAct) => {
+    const data = await updateCartQuantService(id, user, quantAct);
+    // console.log(data)
+    if (data !== undefined) {
+      setCart(data.cart);
+    }
+  };
+
+  const cartSummaryArr = cartSummaryService(cart);
 
   return (
     <cartContext.Provider
@@ -59,7 +62,8 @@ if(data!==undefined){
         cart,
         addToCart,
         removeFromCart,
-        updateCartQuant
+        updateCartQuant,
+        cartSummaryArr,
       }}
     >
       {children}
