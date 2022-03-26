@@ -4,3 +4,6 @@ export { signUpHandler } from "./Auth/signUpHandler";
 export { addToWishlistService } from "./wishlist/addToWishlist";
 export { removeFromWishlistService } from "./wishlist/removeFromWishlist";
 export { getWishlist } from "./wishlist/getWishlist";
+export { addToCartService } from "./cart-service/addToCartService";
+export { removeFromCartService } from "./cart-service/removeFromCartService";
+export { getCart } from "./cart-service/getCart";
