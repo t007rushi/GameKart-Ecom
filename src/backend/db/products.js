@@ -50,7 +50,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    img: "https://m.media-amazon.com/images/I/71XN6RnFchL._SL1500_.jpg",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn5TB1V1rjzX8I96NrbPci2pmVIj0aQ6S_dC1JAjN7eTNOvvuownMQNtvC_0KpFrCr9Fk&usqp=CAU",
     prod_title: "PS4",
     prod_desc: "PEGI Rating: Ages 13 and Above",
     price: 40999,
@@ -205,7 +205,7 @@ export const products = [
   },
   {
     _id: uuid(),
-    img: "https://m.media-amazon.com/images/I/51Iw5jCQY7L._SX679_.jpg",
+    img: "https://m.media-amazon.com/images/I/41rd55K2gaL._AC_SY580_.jpg",
     prod_title: "PS4 Headset",
     prod_desc: "PEGI Rating: Ages 13 and Above",
     price: 8999,
