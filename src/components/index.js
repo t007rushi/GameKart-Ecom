@@ -8,5 +8,7 @@ import SelectInput from "./SelectInput/SelectInput";
 import Input from "./Input/Input";
 import PriceRange from "./PriceRange/PriceRange";
 import Card from "./Card/Card";
+import PriceDetail from "./PriceDetails/PriceDetail";
+import CartItems from "./CartItems/CartItems";
 
-export {Banner,Category,Footer,ImgBanner,FilterNav,Product,SelectInput,Input,PriceRange,Card}
+export {Banner,Category,Footer,ImgBanner,FilterNav,Product,SelectInput,Input,PriceRange,Card,PriceDetail,CartItems}
