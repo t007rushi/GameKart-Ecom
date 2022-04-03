@@ -1,16 +1,20 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/auth-context";
 import "./Header.css";
 import { signOutHandler } from "../../services";
 import { useWishlist } from "../../Context/wishlist-context";
 import { useCart } from "../../Context/cart-context";
+import { useFilter } from "../../Context/filter-context";
+import { SEARCH } from "../../constant/filterConstant";
 
 export default function Header() {
   const { user, setUser } = useAuth();
   const { pathname } = useLocation();
   const { wishlist } = useWishlist();
   const { cart } = useCart();
+  const { dispactherforfilter } = useFilter();
+  const navigator = useNavigate();
   const NavLinkStyles = ({ isActive }) => {
     return {
       fontWeight: isActive ? "bold" : "normal",
@@ -37,6 +41,10 @@ export default function Header() {
               type="text"
               placeholder="Search varierty gaming products.."
               className="search-bar"
+              onChange={(e) => {
+                dispactherforfilter({ type: SEARCH, payload: e.target.value });
+              }}
+              onClick={() => navigator("/products")}
             />
           </div>
 

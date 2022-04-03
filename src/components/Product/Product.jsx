@@ -8,7 +8,7 @@ import Card from "../Card/Card";
 export default function Product() {
   const { prodArr, fetchData } = useProducts();
   const {
-    filterstate: { sortby, priceRange, category, condition, rating },
+    filterstate: { sortby, priceRange, category, condition, rating,search },
   } = useFilter();
 
   useEffect(() => {
@@ -22,7 +22,8 @@ export default function Product() {
     priceRange,
     category,
     condition,
-    rating
+    rating,
+    search
   );
   return (
     <div>

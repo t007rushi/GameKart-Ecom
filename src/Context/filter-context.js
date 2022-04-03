@@ -5,6 +5,7 @@ import {
   PRICERANGE,
   RATING,
   SORT,
+  SEARCH
 } from "../constant/filterConstant";
 
 const FilterContext = createContext(null);
@@ -38,6 +39,9 @@ const FilterReducerFun = (state, action) => {
       return { ...state, condition: action.payload };
     case RATING:
       return { ...state, rating: action.payload };
+     //Search
+     case SEARCH:
+       return {...state,search:action.payload} 
     //clean_up
     case CLEAN_UP:
       return {
@@ -46,6 +50,7 @@ const FilterReducerFun = (state, action) => {
         category: { games: false, console: false, accesories: false },
         condition: null,
         rating: 0,
+        search:""
       };
 
     default:
@@ -60,6 +65,7 @@ const FilterContextPRovider = ({ children }) => {
     category: { games: false, console: false, accesories: false },
     condition: null,
     rating: 0,
+    search:""
   });
 
   return (
