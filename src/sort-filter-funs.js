@@ -12,7 +12,8 @@ export const SorterFun = (data, sortby) => {
     case "new_arive":
       return (prod = data.sort(
         (a, b) =>
-          parseFloat(new Date(b.released).getDate() ) - parseFloat(new Date(b.released).getDate())
+          parseFloat(new Date(b.released).getDate()) -
+          parseFloat(new Date(b.released).getDate())
       ));
     case "highdiscount":
       return (prod = data.sort(
@@ -23,7 +24,14 @@ export const SorterFun = (data, sortby) => {
   }
 };
 
-export const FilterFun = (data, priceMax, category, condition, rating ) => {
+export const FilterFun = (
+  data,
+  priceMax,
+  category,
+  condition,
+  rating,
+  search
+) => {
   let prod = data;
   if (priceMax) {
     prod = prod.filter((product) => product.price <= priceMax);
@@ -53,6 +61,11 @@ export const FilterFun = (data, priceMax, category, condition, rating ) => {
 
   // Filtering by rating
   prod = prod.filter((product) => product.rating > Number(rating));
+
+  //Search filter
+  prod = prod.filter((product) =>
+    product.prod_title.toLowerCase().includes(search.toLowerCase())
+  );
 
   return prod;
 };
