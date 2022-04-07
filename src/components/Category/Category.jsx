@@ -1,30 +1,24 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./category.css";
+import { categoryData } from "../../data/categoryData";
+import { useFilter } from "../../Context/filter-context";
 
 const Category = () => {
+const {dispactherforfilter} = useFilter();
   return (
     <div className="flex-row middle-bar center-it">
-          <div className="flex-col center-it">
-            <span className="material-icons expl-icon"> sports_esports </span>
-            <h3>GAMES</h3>
-          </div>
-          <div className="flex-col center-it">
-            <span className="material-icons expl-icon"> kitchen </span>
-            <h3>CONSOLE</h3>
-          </div>
-          <div className="flex-col center-it">
-            <span className="material-icons expl-icon"> headphones </span>
-            <h3>ACCESORIES</h3>
-          </div>
-          <div className="flex-col center-it">
-            <span className="material-icons expl-icon"> person </span>
-            <h3>JOIN IN</h3>
-          </div>
-          <div className="flex-col center-it">
-            <span className="material-icons expl-icon"> play_arrow </span>
-            <h3>PLAY</h3>
-          </div>
-        </div>
-  )
-}
+      <h3>CATEGORIES TO EXPLORE :</h3>
+      {categoryData.map((cat) => {
+        return (
+          <Link to="/products" className="flex-col center-it feat-category" onClick={() =>dispactherforfilter({type:cat.category})}>
+            <span className="material-icons expl-icon"> {cat.icon} </span>
+            <h3>{cat.category}</h3>
+          </Link>
+        );
+      })}
+    </div>
+  );
+};
 
 export default Category;
