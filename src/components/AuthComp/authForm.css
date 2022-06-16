@@ -69,3 +69,15 @@
 .acc-color {
   accent-color: var(--secondary-color);
 }
+
+@media only screen and (max-width: 615px) {
+  .form-img {
+    display: none;
+  }
+  .form-wrap {
+    justify-content: center;
+  }
+  .form-block{
+    border-radius:1rem;
+  }
+}
