@@ -25,13 +25,15 @@ export default function Header() {
       <>
         <header className="flex-row header-bar">
           <div className="flex-row header-left">
-            <i className="material-icons header-icon"> menu </i>
+            {pathname === "/products" && (
+              <i className="material-icons header-icon"> menu </i>
+            )}
             <NavLink to="/" className="hm-pg-link">
               <h1 className="flex-row web-logo">
                 <span className="material-icons web-logo-icon">
                   sports_esports
                 </span>
-                GameKart
+                <span className="site-name">GameKart</span>
               </h1>
             </NavLink>
           </div>
@@ -47,14 +49,6 @@ export default function Header() {
               onClick={() => navigator("/products")}
             />
           </div>
-
-          {!user.isUserLoggedIn &&
-          !(pathname === "/login") &&
-          !(pathname === "/signup") ? (
-            <NavLink to="/login" style={NavLinkStyles}>
-              <button className="btn primary-btn">LOGIN</button>
-            </NavLink>
-          ) : null}
 
           <div className="flex-row header-right">
             <NavLink to="/wishlist" style={NavLinkStyles}>
@@ -87,13 +81,22 @@ export default function Header() {
                 logout
               </i>
             ) : (
-              <NavLink
-                to="/"
-                style={NavLinkStyles}
-                className="material-icons header-icon lg-out"
-              >
-                expand_more
-              </NavLink>
+              <>
+                <NavLink to="/login" style={NavLinkStyles} className="login-icon">
+                  <i className="material-icons header-icon hidden-screen-size">
+                    login  
+                  </i>
+                </NavLink>
+                {!user.isUserLoggedIn &&
+                !(pathname === "/login") &&
+                !(pathname === "/signup") && (
+                  <NavLink to="/login" style={NavLinkStyles}>
+                    <button className="btn primary-btn hide-screen-size">
+                      LOGIN
+                    </button>
+                  </NavLink>
+                ) }
+              </>
             )}
           </div>
         </header>
