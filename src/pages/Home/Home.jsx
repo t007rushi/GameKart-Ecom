@@ -3,10 +3,11 @@ import {Banner ,
  Category,
  Footer ,
  ImgBanner }  from "../../components/index.js"
+ import "./home.css"
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-page">
       <Banner />
       <Category />
       <ImgBanner />

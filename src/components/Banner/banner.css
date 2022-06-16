@@ -1,0 +1,28 @@
+.banner-card {
+  padding: 6rem ;
+}
+
+.banner-img {
+  width: 35rem;
+  height: 35rem;
+}
+@media only screen and (max-width: 768px) {
+  .banner-container {
+    flex-direction: column;
+  }
+
+  .banner-card {
+    padding: 3rem 1rem;
+  }
+  .banner-btn {
+    width: 10rem;
+    font-size: 1rem;
+    font-weight: none;
+  }
+}
+
+@media only screen and (max-width: 625px) {
+  .banner-img {
+    width: 25rem;
+  }
+}

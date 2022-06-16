@@ -1,0 +1,17 @@
+@media only screen and (max-width: 625px) {
+  .img-banner-pic{
+    display: none;
+  }
+  .rmv-abs{
+    position:static;
+    padding:2rem;
+  }
+.abs-pos{
+  right:6rem;
+}
+}
+
+@media only screen and (max-width: 425px) {
+.res-hid {
+  display: none;
+}}

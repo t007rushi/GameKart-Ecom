@@ -1,0 +1,13 @@
+@media only screen and (max-width: 768px) {
+  .footer-items {
+    flex-wrap: wrap;
+  }
+  .footer-content-data{
+    justify-content: flex-start;
+  }
+}
+
+.footer-social{
+    margin-left:1rem;
+    padding:10px;
+}

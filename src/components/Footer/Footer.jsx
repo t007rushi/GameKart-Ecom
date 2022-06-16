@@ -1,4 +1,5 @@
 import React from "react";
+import "./footer.css"
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
           <i className="fa-brands fa-instagram footer-icon" />
           <i className="fa-brands fa-twitter footer-icon" />
         </div>
-        <section className="flex-row footer-block">
+        <section className="flex-row footer-block footer-items">
           <ul className="flex-col ftr-list">
             <li>
               <h3>Browse</h3>
@@ -42,10 +43,10 @@ export default function Footer() {
           </ul>
         </section>
         <div className="flex-col ftr-btm gap-btwn">
-          <h4 className="flex-row center-it">
+          <h4 className="flex-row center-it footer-content-data">
             Crearted &amp; maintained by Rushikesh Tarapure
           </h4>
-          <span className="flex-row center-it gap-btwn">
+          <span className="flex-row center-it gap-btwn footer-content-data">
             <i className="material-icons"> public </i>ENGLISH
             <p>About our ads © Gamekart 2022</p>
           </span>
