@@ -7,3 +7,11 @@
     border-bottom: 1px solid var(--secondary-color);
     padding-bottom: 1rem;
   }
+
+  .mb{
+    margin-bottom:1rem;
+}
+
+.ml{
+    margin-left:1rem;
+}

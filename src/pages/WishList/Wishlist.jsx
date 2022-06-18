@@ -11,13 +11,13 @@ export default function Wishlist() {
     <div className="wishlist-wrap">
       {wishlist.length === 0 ? (
         <>
-          <h1>Wishlist is empty add items here</h1>
-          <Link to="/products">Browse products to add</Link>
+          <h1 className="mb">Your Wishlist is empty</h1>
+          <Link to="/products" className="btn primary-btn undle">Browse products to add</Link>
         </>
       ) : (
         <>
-          <h1 className="wishlist-head">Wishlist Items({wishlist.length}) </h1>
-          <Link to="/products">Browse products to add</Link>
+          <h1 className="wishlist-head">Wishlist Items({wishlist.length}) 
+          <Link to="/products" className="btn primary-btn undle ml">Browse products to add</Link></h1>
           <div className="card-collection">
             {wishlist.map((prod) => {
               return <Card key={prod.id} prod={prod} />;

@@ -72,9 +72,9 @@ export default function SignUp() {
             <div className="flex-row center-it form-mid">
               <input type="checkbox" className="acc-color" id="remember-me" />
               <p className="form-text">
-                By continuing, you agree to Swift-UI
-                <span className="form-cond">Terms of Use </span> and
-                <span className="form-cond">Privacy Policy</span>
+                By continuing, you agree to GameKart <br />
+                <span className="form-cond">Terms of Use </span> and 
+                <span className="form-cond"> Privacy Policy</span>
               </p>
             </div>
             <button className="btn primary-btn">SIGN-UP</button>

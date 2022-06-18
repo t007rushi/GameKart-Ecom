@@ -1,0 +1,23 @@
+@media only screen and (max-width: 768px) {
+  .footer-items {
+    flex-wrap: wrap;
+  }
+  .footer-content-data {
+    justify-content: flex-start;
+  }
+}
+
+@media only screen and (max-width: 468px) {
+  .footer-items {
+    flex-direction: column;
+  }
+}
+
+.footer-social {
+  margin-left: 1rem;
+  padding: 10px;
+}
+
+.footer-block {
+  padding: 10px;
+}

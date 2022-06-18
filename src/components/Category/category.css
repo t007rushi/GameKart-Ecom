@@ -1,4 +1,14 @@
-.feat-category{
-    text-decoration: none;
-    color:var(--btn-primary-color);
+.feat-category {
+  text-decoration: none;
+  color: var(--btn-primary-color);
+}
+
+@media only screen and (max-width: 768px) {
+  .category-container {
+    padding:0;
+  }
+  .middle-bar{
+    font-size:1rem;
+    justify-content:flex-start;
+  }
 }

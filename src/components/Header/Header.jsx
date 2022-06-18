@@ -25,13 +25,15 @@ export default function Header() {
       <>
         <header className="flex-row header-bar">
           <div className="flex-row header-left">
-            <i className="material-icons header-icon"> menu </i>
+            {/* {pathname === "/products" && (
+              <i className="material-icons header-icon"> menu </i>
+            )} */}
             <NavLink to="/" className="hm-pg-link">
               <h1 className="flex-row web-logo">
                 <span className="material-icons web-logo-icon">
                   sports_esports
                 </span>
-                GameKart
+                <span className="site-name">GameKart</span>
               </h1>
             </NavLink>
           </div>
@@ -48,20 +50,12 @@ export default function Header() {
             />
           </div>
 
-          {!user.isUserLoggedIn &&
-          !(pathname === "/login") &&
-          !(pathname === "/signup") ? (
-            <NavLink to="/login" style={NavLinkStyles}>
-              <button className="btn primary-btn">LOGIN</button>
-            </NavLink>
-          ) : null}
-
           <div className="flex-row header-right">
             <NavLink to="/wishlist" style={NavLinkStyles}>
               <div className="relative-container">
                 <i className="material-icons header-icon">
                   favorite_border
-                  {user.isUserLoggedIn ? (
+                  {user.isUserLoggedIn && wishlist.length? (
                     <div className="badge top-right lrg red-clr flex-row center-it">
                       {wishlist.length}
                     </div>
@@ -72,7 +66,7 @@ export default function Header() {
             <NavLink to="/cart" style={NavLinkStyles} className="cart">
               <div className="flex-row relative-container">
                 <i className="material-icons header-icon"> shopping_cart </i>
-                {user.isUserLoggedIn ? (
+                {user.isUserLoggedIn && cart.length ? (
                   <div className="badge top-right lrg red-clr flex-row center-it">
                     {cart.length}
                   </div>
@@ -82,18 +76,29 @@ export default function Header() {
             {user.isUserLoggedIn ? (
               <i
                 className="material-icons header-icon lg-out"
-                onClick={() => signOutHandler(setUser)}
+                onClick={() => {signOutHandler(setUser);
+                navigator("/")
+                }}
               >
                 logout
               </i>
             ) : (
-              <NavLink
-                to="/"
-                style={NavLinkStyles}
-                className="material-icons header-icon lg-out"
-              >
-                expand_more
-              </NavLink>
+              <>
+                <NavLink to="/login" style={NavLinkStyles} className="login-icon">
+                  <i className="material-icons header-icon hidden-screen-size">
+                    login  
+                  </i>
+                </NavLink>
+                {!user.isUserLoggedIn &&
+                !(pathname === "/login") &&
+                !(pathname === "/signup") && (
+                  <NavLink to="/login" style={NavLinkStyles}>
+                    <button className="btn primary-btn hide-screen-size">
+                      LOGIN
+                    </button>
+                  </NavLink>
+                ) }
+              </>
             )}
           </div>
         </header>

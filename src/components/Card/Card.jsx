@@ -4,12 +4,14 @@ import { useAuth } from "../../Context/auth-context";
 import { useCart } from "../../Context/cart-context";
 import { useWishlist } from "../../Context/wishlist-context";
 import "./Card.css";
+import { toast } from "react-toastify";
 
 const Card = ({ prod }) => {
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const { cart, addToCart } = useCart();
   const { user } = useAuth();
   const navigator = useNavigate();
+
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -33,7 +35,14 @@ const Card = ({ prod }) => {
           {!cart.find((item) => item._id === prod._id) ? (
             <button
               className="card-btn primary-btn flex-row center-it"
-              onClick={() => addToCart(prod)}
+              onClick={() => {
+                if (user.isUserLoggedIn) {
+                  addToCart(prod);
+                  toast.success(`${prod.prod_title} added to Cart`);
+                } else {
+                  toast.warning("You must login first");
+                }
+              }}
             >
               <span className="material-icons icon">shopping_cart</span>
               <p>Add to Cart</p>
@@ -50,15 +59,18 @@ const Card = ({ prod }) => {
 
           {/* button2 */}
 
-          <button className="card-btn card-icon-btn" onClick={() => {}}>
+          {/* <button className="card-btn card-icon-btn" onClick={() => {}}>
             <p>BUY NOW</p>
-          </button>
+          </button> */}
         </div>
         {/* icon button */}
         {wishlist.find((item) => item._id === prod._id) ? (
           <i
             className="material-icons wishlist-abs bg-none cur-point"
-            onClick={() => removeFromWishlist(prod._id, user)}
+            onClick={() => {
+              removeFromWishlist(prod._id, user);
+              toast.success(`${prod.prod_title} Removed From Wishlist`);
+            }}
           >
             favorite
           </i>
@@ -68,8 +80,9 @@ const Card = ({ prod }) => {
             onClick={() => {
               if (user.isUserLoggedIn) {
                 addToWishlist(prod, user);
+                toast.success(`${prod.prod_title} added to Wishlist`);
               } else {
-                alert("Log In to Continue");
+                toast.warning("You must login first");
                 navigator("/login");
               }
             }}

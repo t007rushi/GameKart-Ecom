@@ -48,13 +48,16 @@ const CartProvider = ({ children }) => {
   //QUANTIY INCR/DECR
   const updateCartQuant = async (id, quantAct) => {
     const data = await updateCartQuantService(id, user, quantAct);
-    // console.log(data)
     if (data !== undefined) {
       setCart(data.cart);
     }
   };
 
   const cartSummaryArr = cartSummaryService(cart);
+
+  const EmptyCart = () => {
+    cart.forEach((cItem) => removeFromCart(cItem._id));
+  };
 
   return (
     <cartContext.Provider
@@ -64,6 +67,7 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         updateCartQuant,
         cartSummaryArr,
+        EmptyCart,
       }}
     >
       {children}
