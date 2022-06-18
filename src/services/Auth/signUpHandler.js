@@ -13,7 +13,7 @@ export const signUpHandler = async (
       email: email,
       password: pass,
     });
-    // saving the encodedToken in the localStorage
+
     localStorage.setItem("token", data.encodedToken);
     navigator("/login");
     toast.success("Signed Up successfully, Log in first");
