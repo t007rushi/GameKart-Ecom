@@ -76,7 +76,9 @@ export default function Header() {
             {user.isUserLoggedIn ? (
               <i
                 className="material-icons header-icon lg-out"
-                onClick={() => signOutHandler(setUser)}
+                onClick={() => {signOutHandler(setUser);
+                navigator("/")
+                }}
               >
                 logout
               </i>
