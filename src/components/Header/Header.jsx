@@ -25,9 +25,9 @@ export default function Header() {
       <>
         <header className="flex-row header-bar">
           <div className="flex-row header-left">
-            {pathname === "/products" && (
+            {/* {pathname === "/products" && (
               <i className="material-icons header-icon"> menu </i>
-            )}
+            )} */}
             <NavLink to="/" className="hm-pg-link">
               <h1 className="flex-row web-logo">
                 <span className="material-icons web-logo-icon">
@@ -55,7 +55,7 @@ export default function Header() {
               <div className="relative-container">
                 <i className="material-icons header-icon">
                   favorite_border
-                  {user.isUserLoggedIn ? (
+                  {user.isUserLoggedIn && wishlist.length? (
                     <div className="badge top-right lrg red-clr flex-row center-it">
                       {wishlist.length}
                     </div>
@@ -66,7 +66,7 @@ export default function Header() {
             <NavLink to="/cart" style={NavLinkStyles} className="cart">
               <div className="flex-row relative-container">
                 <i className="material-icons header-icon"> shopping_cart </i>
-                {user.isUserLoggedIn ? (
+                {user.isUserLoggedIn && cart.length ? (
                   <div className="badge top-right lrg red-clr flex-row center-it">
                     {cart.length}
                   </div>

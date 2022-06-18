@@ -6,8 +6,8 @@ const Banner = () => {
   return (
     <div className="home-intro flex-row banner-container">
       <div className="home-descr flex-col  banner-card">
-        <h1>EXPLORE THE NEXT </h1>
-        <h1>GEN GAMING WORLD</h1>
+        <h1>EXPLORE THE NEXT GEN</h1>
+        <h1> GAMING WORLD</h1>
         <p>
           Experience thrilling, cinematic storytelling and the iconic
           franchise’s largest blockbuster action set pieces.

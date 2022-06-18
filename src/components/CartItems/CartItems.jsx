@@ -47,9 +47,10 @@ const CartItems = () => {
                   +
                 </button>
               </div>
-              <button className="card-btn primary-btn" onClick={() => {}}>
+              {/* <button className="card-btn primary-btn" onClick={() => {}}>
                 Check Details
-              </button>
+              </button> */}
+              <br />
               <button
                 className="card-btn card-icon-btn"
                 onClick={() => {

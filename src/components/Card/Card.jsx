@@ -10,6 +10,7 @@ const Card = ({ prod }) => {
   const { cart, addToCart } = useCart();
   const { user } = useAuth();
   const navigator = useNavigate();
+
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -33,7 +34,13 @@ const Card = ({ prod }) => {
           {!cart.find((item) => item._id === prod._id) ? (
             <button
               className="card-btn primary-btn flex-row center-it"
-              onClick={() => addToCart(prod)}
+              onClick={() => {
+                if(user.isUserLoggedIn){
+
+                  addToCart(prod)
+                }else{
+                }
+              }}
             >
               <span className="material-icons icon">shopping_cart</span>
               <p>Add to Cart</p>
@@ -50,9 +57,9 @@ const Card = ({ prod }) => {
 
           {/* button2 */}
 
-          <button className="card-btn card-icon-btn" onClick={() => {}}>
+          {/* <button className="card-btn card-icon-btn" onClick={() => {}}>
             <p>BUY NOW</p>
-          </button>
+          </button> */}
         </div>
         {/* icon button */}
         {wishlist.find((item) => item._id === prod._id) ? (
