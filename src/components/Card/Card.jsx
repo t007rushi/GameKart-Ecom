@@ -4,6 +4,7 @@ import { useAuth } from "../../Context/auth-context";
 import { useCart } from "../../Context/cart-context";
 import { useWishlist } from "../../Context/wishlist-context";
 import "./Card.css";
+import { toast } from "react-toastify";
 
 const Card = ({ prod }) => {
   const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
@@ -35,10 +36,11 @@ const Card = ({ prod }) => {
             <button
               className="card-btn primary-btn flex-row center-it"
               onClick={() => {
-                if(user.isUserLoggedIn){
-
-                  addToCart(prod)
-                }else{
+                if (user.isUserLoggedIn) {
+                  addToCart(prod);
+                  toast.success(`${prod.prod_title} added to Cart`);
+                } else {
+                  toast.warning("You must login first");
                 }
               }}
             >
@@ -65,7 +67,10 @@ const Card = ({ prod }) => {
         {wishlist.find((item) => item._id === prod._id) ? (
           <i
             className="material-icons wishlist-abs bg-none cur-point"
-            onClick={() => removeFromWishlist(prod._id, user)}
+            onClick={() => {
+              removeFromWishlist(prod._id, user);
+              toast.success(`${prod.prod_title} Removed From Wishlist`);
+            }}
           >
             favorite
           </i>
@@ -75,8 +80,9 @@ const Card = ({ prod }) => {
             onClick={() => {
               if (user.isUserLoggedIn) {
                 addToWishlist(prod, user);
+                toast.success(`${prod.prod_title} added to Wishlist`);
               } else {
-                alert("Log In to Continue");
+                toast.warning("You must login first");
                 navigator("/login");
               }
             }}
