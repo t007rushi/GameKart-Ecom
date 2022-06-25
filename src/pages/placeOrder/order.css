@@ -1,8 +1,11 @@
-.mt{
-    margin:10rem;
+.shop-more-btn {
+  width: 10rem;
+  text-align: center;
 }
 
-.shop-more-btn{
-    width:10rem;
-    text-align:center;
+.addr-wrap {
+  border: 1px solid var(--ternary-color);
+  padding: 10px;
+  border-radius: 1rem;
+  width: fit-content;
 }
