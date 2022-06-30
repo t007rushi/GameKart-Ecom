@@ -15,7 +15,7 @@ export const Checkout = () => {
       <div className="flex-col gap-btwn checkout-wrap">
         <h3>Address for shipment : </h3>
         <label htmlFor="address" className="flex-row gap-btwn addr-wrap">
-          <input type="radio" name="address" checked="true" />
+          <input type="radio" name="address" defaultChecked="true" />
           <div className="flex-col gap-btwn">
             <p>Plot no.3, Sambhaji Chowk, Chatrapati Nagar, Gate No.16</p>
             <p>
@@ -33,8 +33,8 @@ export const Checkout = () => {
         {cart.map(({ _id, prod_title, qty }) => {
           return (
             <div className="flex-row spc-btwn" key={_id}>
-              <h1>{prod_title}</h1>
-              <h1>{qty}</h1>
+              <p>{prod_title}</p>
+              <p>{qty}</p>
             </div>
           );
         })}

@@ -12,6 +12,17 @@ const Card = ({ prod }) => {
   const { user } = useAuth();
   const navigator = useNavigate();
 
+  let added;
+  const throttle = (cb, d) => {
+    if (added) return;
+    added = true;
+    setTimeout(() => {
+      cb();
+      toast.success(`${prod.prod_title} added to Cart`);
+      added = false;
+    }, d);
+  };
+
   return (
     <div key={prod.id}>
       <div className="card relative-container">
@@ -37,8 +48,7 @@ const Card = ({ prod }) => {
               className="card-btn primary-btn flex-row center-it"
               onClick={() => {
                 if (user.isUserLoggedIn) {
-                  addToCart(prod);
-                  toast.success(`${prod.prod_title} added to Cart`);
+                  throttle(() => addToCart(prod), 1000);
                 } else {
                   toast.warning("You must login first");
                 }

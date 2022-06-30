@@ -1,0 +1,9 @@
+.order-detail-wrap {
+  justify-self: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .order-detail-wrap {
+    align-self: flex-start;
+  }
+}
