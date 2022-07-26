@@ -10,15 +10,16 @@ const Category = () => {
     <div className="flex-row center-it middle-bar">
       <h3>CATEGORIES TO EXPLORE :</h3>
       <div className="flex-row gap-btwn">
-        {categoryData.map((cat) => {
+        {categoryData.map(({ id, icon, category }) => {
           return (
             <Link
+              key={id}
               to="/products"
               className="flex-col center-it feat-category"
-              onClick={() => dispactherforfilter({ type: cat.category })}
+              onClick={() => dispactherforfilter({ type: category })}
             >
-              <span className="material-icons expl-icon"> {cat.icon} </span>
-              <h3>{cat.category}</h3>
+              <span className="material-icons expl-icon"> {icon} </span>
+              <h3>{category}</h3>
             </Link>
           );
         })}

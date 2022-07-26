@@ -1,17 +1,18 @@
 .wishlist-wrap {
-    margin: 5rem;
-    text-align: center;
-  }
-
-  .wishlist-head {
-    border-bottom: 1px solid var(--secondary-color);
-    padding-bottom: 1rem;
-  }
-
-  .mb{
-    margin-bottom:1rem;
+  margin: 5rem;
+  text-align: center;
 }
 
-.ml{
-    margin-left:1rem;
+.wishlist-head {
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 1rem;
+}
+
+.mb {
+  margin-bottom: 1rem;
+}
+
+.ml {
+  margin-left: 1rem;
+  margin-top: 1rem;
 }

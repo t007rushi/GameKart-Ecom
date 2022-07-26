@@ -20,6 +20,19 @@ export default function Header() {
       fontWeight: isActive ? "bold" : "normal",
     };
   };
+
+  const debounce = (cb) => {
+    let timer;
+    return function (...args) {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => cb(...args), 1000);
+    };
+  };
+
+  const changeHandler = debounce((e) => {
+    dispactherforfilter({ type: SEARCH, payload: e.target.value });
+  });
+
   return (
     <div>
       <>
@@ -44,7 +57,7 @@ export default function Header() {
               placeholder="Search varierty gaming products.."
               className="search-bar"
               onChange={(e) => {
-                dispactherforfilter({ type: SEARCH, payload: e.target.value });
+                changeHandler(e);
               }}
               onClick={() => navigator("/products")}
             />
@@ -55,7 +68,7 @@ export default function Header() {
               <div className="relative-container">
                 <i className="material-icons header-icon">
                   favorite_border
-                  {user.isUserLoggedIn && wishlist.length? (
+                  {user.isUserLoggedIn && wishlist.length ? (
                     <div className="badge top-right lrg red-clr flex-row center-it">
                       {wishlist.length}
                     </div>
@@ -76,28 +89,33 @@ export default function Header() {
             {user.isUserLoggedIn ? (
               <i
                 className="material-icons header-icon lg-out"
-                onClick={() => {signOutHandler(setUser);
-                navigator("/")
+                onClick={() => {
+                  signOutHandler(setUser);
+                  navigator("/");
                 }}
               >
                 logout
               </i>
             ) : (
               <>
-                <NavLink to="/login" style={NavLinkStyles} className="login-icon">
+                <NavLink
+                  to="/login"
+                  style={NavLinkStyles}
+                  className="login-icon"
+                >
                   <i className="material-icons header-icon hidden-screen-size">
-                    login  
+                    login
                   </i>
                 </NavLink>
                 {!user.isUserLoggedIn &&
-                !(pathname === "/login") &&
-                !(pathname === "/signup") && (
-                  <NavLink to="/login" style={NavLinkStyles}>
-                    <button className="btn primary-btn hide-screen-size">
-                      LOGIN
-                    </button>
-                  </NavLink>
-                ) }
+                  !(pathname === "/login") &&
+                  !(pathname === "/signup") && (
+                    <NavLink to="/login" style={NavLinkStyles}>
+                      <button className="btn primary-btn hide-screen-size">
+                        LOGIN
+                      </button>
+                    </NavLink>
+                  )}
               </>
             )}
           </div>

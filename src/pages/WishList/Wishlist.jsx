@@ -12,12 +12,19 @@ export default function Wishlist() {
       {wishlist.length === 0 ? (
         <>
           <h1 className="mb">Your Wishlist is empty</h1>
-          <Link to="/products" className="btn primary-btn undle">Browse products to add</Link>
+          <Link to="/products" className="btn primary-btn undle">
+            Browse products to add
+          </Link>
         </>
       ) : (
         <>
-          <h1 className="wishlist-head">Wishlist Items({wishlist.length}) 
-          <Link to="/products" className="btn primary-btn undle ml">Browse products to add</Link></h1>
+          <div className="flex-col wishlist-head center-it gap-btwn">
+            <h1 className="">Wishlist Items({wishlist.length})</h1>
+            <Link to="/products" className="btn primary-btn undle ml">
+              Browse products
+            </Link>
+          </div>
+
           <div className="card-collection">
             {wishlist.map((prod) => {
               return <Card key={prod.id} prod={prod} />;

@@ -1,4 +1,13 @@
 .mt {
-  margin: 0 5rem;
+  margin: 6rem;
+}
+.checkout-wrap {
+  margin: 0 2rem;
   margin-top: 5rem;
+}
+
+.cart-place-gb {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
 }
